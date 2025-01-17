@@ -1,3 +1,10 @@
+:root {
+    --nav-gap: 65px;
+    --img-default-scale: 30px;
+    --img-thinner-scale: 28px;
+    --logo-w: 94px;
+    --logo-h: 111px;
+}
 * {
     margin: 0;
     padding: 0;
@@ -18,8 +25,7 @@ body {
 .background__img {
     filter: brightness(60%);
     width: 100dvw;
-    height: 390px;
-    
+    height: 390px;   
 }
 .header__inner {
     display: flex;
@@ -41,8 +47,8 @@ body {
     margin: 12px 0 22px 0;
 }
 .header__logo-image {
-    width: 94px;
-    height: 111px;
+    width: var(--logo-w);
+    height: var(--logo-h);
 }
 .header__logo-title {
     color: #fff;
@@ -51,8 +57,8 @@ body {
     text-transform: uppercase;
 }
 .header__social-icon {
-    width: 30px;
-    height: 30px;
+    width: var(--img-default-scale);
+    height: var(--img-default-scale);
 }
 .header__social-images {
     position: relative;
@@ -72,17 +78,14 @@ body {
     left: 28.25%;
 }
 .header__social-image:nth-child(3) {
-    width: 30px;
-    height: 30px;
+    width: var(--img-default-scale);
+    height: var(--img-default-scale);
 }
 
-.nav {
-
-}
 .nav__list {
     display: flex;
     justify-content: center;
-    gap: 65px;
+    gap: var(--nav-gap);
     font-weight: 500;
     list-style-type: none;
 }
@@ -95,8 +98,8 @@ body {
     content: '';
     background: url('/images/vk.png') no-repeat center center;
     background-size: contain;
-    width: 30px;
-    height: 30px;
+    width: var(--img-default-scale);
+    height: var(--img-default-scale);
     display: inline-block;
 }
 .facebook-link::before {
@@ -104,8 +107,8 @@ body {
     background: url('/images/fb.png') no-repeat center center;
     background-position: center;
     background-size: contain;
-    width: 30px;
-    height: 30px;
+    width: var(--img-default-scale);
+    height: var(--img-default-scale);
     display: inline-block;
 }
 .search-link::before {
@@ -113,8 +116,8 @@ body {
     background: url('/images/search.png') no-repeat center center;
     background-position: center;
     background-size: contain;
-    width: 28px;
-    height: 28px;
+    width: var(--img-thinner-scale);
+    height: var(--img-thinner-scale);
     display: inline-block;
 }
 .cart-link::before {
@@ -122,7 +125,7 @@ body {
     background: url('/images/cart.png') no-repeat center center;
     background-position: center;
     background-size: contain;
-    width: 30px;
-    height: 28px;
+    width: var(--img-default-scale);
+    height: var(--img-thinner-scale);
     display: inline-block;
 }
