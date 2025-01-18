@@ -4,6 +4,7 @@
     --img-thinner-scale: 28px;
     --logo-w: 94px;
     --logo-h: 111px;
+    --header-title-m-top: 100px;
 }
 * {
     margin: 0;
@@ -34,8 +35,13 @@ body {
 .header__social-list, .header__action-list {
     display: flex;
     align-items: center;
-    gap: 10px;
     list-style-type: none;
+}
+.header__social-list {
+    gap: 10px;
+}
+.header__action-list {
+    gap: 35px;
 }
 .header__social-item, .header__action-item {
     display: inline-block;
@@ -92,6 +98,11 @@ body {
 .nav__item a {
     color: #fff;
     text-decoration: none;
+}
+.header__title {
+    font-size: 3.125rem;
+    color: #fff;
+    margin-top: var(--header-title-m-top);
 }
 
 .vk-link::before {
