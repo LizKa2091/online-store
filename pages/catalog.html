@@ -68,9 +68,63 @@
             </nav>
             <h2 class="header__title">Каталог</h2>
         </header>
-        <main class="main">
+        <div class="content-wrapper">
+            <aside class="aside">
+                <div class="fitler-panel">
+                    <div class="filter-panel__search">
+                        <input type="text" class="filter-panel__input" placeholder="Начать поиск...">
+                        <i class="filter-panel__search-icon">
+                            <img src="/images/search.png" alt="search">
+                        </i>
+                    </div>
+                    <div class="filter-panel__filters">
+                        <h3 class="filter-panel__title">Категории</h3>
+                        <hr class="filter-panel__divide">
+                        <ul class="filter-panel__list">
+                            <li class="filter-panel__item">
+                                <span class="filter-panel__item-title">Пиво</span>
+                                <ul class="filter-panel__sublist hidden">
+                                    <li class="filter-panel__subitem">Тёмное</li>
+                                    <li class="filter-panel__subitem">Светлое</li>
+                                    <li class="filter-panel__subitem">Нефильтрованное</li>
+                                    <li class="filter-panel__subitem">Фильтрованное</li>
+                                    <li class="filter-panel__subitem">Пшеничное</li>
+                                </ul>
+                            </li>
+                            <li class="filter-panel__item">
+                                <span class="filter-panel__item-title">Квас</span>
+                                <ul class="filter-panel__sublist hidden">
     
-        </main>
+                                </ul>
+                            </li>
+                            <li class="filter-panel__item">
+                                <span class="filter-panel__item-title">Лимонад</span>
+                                <ul class="filter-panel__sublist hidden">
+                                    
+                                </ul>
+                            </li>
+                            <li class="filter-panel__item">
+                                <span class="filter-panel__item-title">Соки, воды</span>
+                                <ul class="filter-panel__sublist hidden">
+                                    
+                                </ul>
+                            </li>
+                        </ul>
+                        <h3 class="filter-panel__title">Цена</h3>
+                        <hr class="filter-panel__divide">
+                        <div class="filter-panel__price">
+                            <input type="number" class="filter-panel__price__input">
+                            <span class="filter-panel__price-hyphen"></span>
+                            <input type="number" class="filter-panel__price__input">
+                        </div>
+                        <button class="filter-panel__button">Подобрать</button>
+                    </div>
+                </div>
+            </aside>
+            <main class="main">
+    
+            </main>
+        </div>
         <footer class="footer">
     
         </footer>
