@@ -12,7 +12,7 @@
     box-sizing: border-box;
 }
 body {
-    font-family: 'Roboto Slab', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 .wrapper {
     width: clamp(320px, 58.3dvw, 1120px);
@@ -49,6 +49,7 @@ body {
 .header__logo {
     display: flex;
     flex-direction: column;
+    font-family: 'Roboto Slab', sans-serif;
     align-items: center;
     margin: 12px 0 22px 0;
 }
@@ -101,6 +102,7 @@ body {
 }
 .header__title {
     font-size: 3.125rem;
+    font-weight: 500;
     color: #fff;
     margin-top: var(--header-title-m-top);
 }
