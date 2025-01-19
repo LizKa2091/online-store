@@ -30,12 +30,12 @@
     --filter-panel-price-gap: 5px;
     --filter-panel-wheat-w: 29px;
     --filter-panel-wheat-h: 11px;
-    --contact-panel-p: 20px 15px;
-    --contact-panel-p: 20px 16px;
-    --contact-panel-h: 50px;
+    --contact-panel-p: 20px 19px;
+    --contact-panel-input-p: 0 16px;
+    --contact-panel-input-h: 50px;
     --contact-panel-subtitles-m-top: 12px;
     --contact-panel-inputs-gap: 10px;
-    --contact-panel-inputs-m: 16px 0 12px 0;
+    --contact-panel-inputs-p: 16px 0 12px 0;
     --contact-panel-button-m-top: 35px;
     --input-border-color: #D7D7D7;
     --content-wrapper-p: 35px 0;
@@ -47,6 +47,8 @@
 }
 body {
     font-family: 'Fira Sans', sans-serif;
+    width: 100dvw;
+    overflow-x: hidden;
 }
 .wrapper {
     width: clamp(320px, 58.3dvw, 1120px);
@@ -211,7 +213,7 @@ body {
     position: absolute; 
     left: calc(88% - 12px); 
     top: 20%;
-    cursor: pointer;
+    cursor: not-allowed;
 }
 .filter-panel__search-icon img {
     width: var(--img-thinner-scale);
@@ -239,6 +241,10 @@ body {
 .filter-panel__list {
     list-style-type: none;
     margin-top: var(--filter-panel-list-m-top);
+}
+.filter-panel__sublist {
+    list-style-type: none;
+    padding-left: 31px;
 }
 .filter-panel__item {
     color: #fff;
@@ -274,7 +280,6 @@ body {
 }
 .filter-panel__price-hyphen {
     display: flex;
-    position: relative;
     background-color: #fff;
     width: 10px;
     height: 1px;
@@ -352,9 +357,9 @@ body {
     font-family: 'Fira Sans', sans-serif;
     border: 0;
     border-radius: 5px;
-    padding: var(--contact-panel-p);
+    padding: var(--contact-panel-input-p);
     width: 100%;
-    height: var(--contact-panel-h);
+    height: var(--contact-panel-input-h);
     backdrop-filter: blur(4px);
     background: rgba(255, 255, 255, 0.5);
 }
@@ -365,7 +370,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--contact-panel-inputs-gap);
-    margin: var(--contact-panel-inputs-m);
+    padding: var(--contact-panel-inputs-p);
 }
 .contact-panel__extra {
     font-size: 0.6875rem;
@@ -376,4 +381,12 @@ body {
 }
 .contact-panel__button {
     margin-top: var(--contact-panel-button-m-top);
+}
+
+.hidden {
+    display: none;
+}
+.filter-panel__item-icon img {
+    width: 29px;
+    height: 11px;
 }
