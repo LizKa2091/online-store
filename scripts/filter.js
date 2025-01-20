@@ -10,6 +10,7 @@ const endPriceInput = document.querySelector('.filter-panel__price__input');
 const pricePickButton = document.querySelector('.filter-panel__button');
 
 const searchResultSpan = document.querySelector('.search-result');
+const headerTitle = document.querySelector('.header__title');
 
 const items = document.querySelectorAll('.card');
 
@@ -62,14 +63,18 @@ const searchInputOnClick = async (e) => {
         [...items].forEach(item => item.style.display = 'none');
         const itemsLen = await findItems(filtersObj.currInput);
 
+        headerTitle.textContent = `Поиск "${filtersObj.currInput}"`;
+
         searchResultSpan.textContent = `Найдено результатов поиска: ${itemsLen}`;
         searchResultSpan.style.display = 'inline';
     }
-    else {
-        return;
-    }
+
 };
+
 
 searchInput.addEventListener('input', inputOnChange);
 [...filterTitles].forEach(filterTitle => filterTitle.addEventListener('click', categoryOnClick));
 searchInputButton.addEventListener('click', searchInputOnClick);
+
+//clear filters
+document.addEventListener('DOMContentLoaded', () => Object.keys(filtersObj).forEach(key => delete items[key]));
