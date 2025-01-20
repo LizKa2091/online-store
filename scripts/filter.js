@@ -9,23 +9,34 @@ const startPriceInput = document.querySelector('.filter-panel__price__input');
 const endPriceInput = document.querySelector('.filter-panel__price__input');
 const pricePickButton = document.querySelector('.filter-panel__button');
 
+const searchResultSpan = document.querySelector('.search-result');
+
+const items = document.querySelectorAll('.card');
+
 const filtersObj = {};
+const itemsObj = {};
+
+const findItems = async (input) => {
+    const resultItems = [...items].filter(item => item.dataset.itemName.toLowerCase().includes(input.toLowerCase()));
+    
+    resultItems.forEach(item => item.style.display = 'flex');
+    return resultItems.length;
+};
 
 const inputOnChange = (e) => {
     if (!e.target.value) {
         searchInputButton.style.cursor = 'not-allowed';
+        return;
     }
-    else {
-        searchInputButton.style.cursor = 'pointer';
-    }
+    filtersObj.currInput = e.target.value;
+    searchInputButton.style.cursor = 'pointer';
 };
 
-const categoryOnChange = (e) => {
+const categoryOnClick = (e) => {
     const categoryName = e.target.dataset.name;
     const currFilterIconEl = [...filterIcons].find(filterIcon => filterIcon.dataset.name === categoryName);
     const currSubfiltersList = [...filterSubList].find(filterSublist => filterSublist.dataset.name === categoryName);
 
-    console.log(filtersObj.currSubfiltersList, currSubfiltersList)
     if (!filtersObj.currFilter) {
         filtersObj.currFilter = categoryName;
         filtersObj.currFilterIconEl = currFilterIconEl;
@@ -44,8 +55,21 @@ const categoryOnChange = (e) => {
         currFilterIconEl.classList.toggle('hidden');
         currSubfiltersList.classList.toggle('hidden');
     }
+};
 
+const searchInputOnClick = async (e) => {
+    if (filtersObj.currInput) {
+        [...items].forEach(item => item.style.display = 'none');
+        const itemsLen = await findItems(filtersObj.currInput);
+
+        searchResultSpan.textContent = `Найдено результатов поиска: ${itemsLen}`;
+        searchResultSpan.style.display = 'inline';
+    }
+    else {
+        return;
+    }
 };
 
 searchInput.addEventListener('input', inputOnChange);
-[...filterTitles].forEach(filterTitle => filterTitle.addEventListener('click', categoryOnChange));
+[...filterTitles].forEach(filterTitle => filterTitle.addEventListener('click', categoryOnClick));
+searchInputButton.addEventListener('click', searchInputOnClick);

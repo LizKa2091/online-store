@@ -415,6 +415,7 @@ body {
     row-gap: var(--main-row-gap);
     padding-left: var(--main-p-left);
     width: 100%;
+    position: relative;
 }
 .card {
     display: flex;
@@ -524,4 +525,10 @@ body {
 .filter-panel__item-icon img {
     width: 29px;
     height: 11px;
+}
+.search-result {
+    font-size: 1rem;
+    font-weight: 500;
+    position: absolute;
+    top: -20px;
 }
