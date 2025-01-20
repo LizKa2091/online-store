@@ -268,6 +268,10 @@ body {
     position: relative;
     gap: var(--filter-panel-price-gap);
 }
+.filter-panel__price__input-container {
+    position: relative;
+    width: 100%;
+}
 .filter-panel__price__input {
     font-family: 'Fira Sans', sans-serif;
     font-size: 1.125rem;
@@ -277,6 +281,13 @@ body {
     padding: var(--filter-panel-price-input-p);
     width: 100%;
     height: var(--filter-panel-price-input-h);
+}
+.filter-panel__price__currency {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.125rem;
 }
 .filter-panel__price-hyphen {
     display: flex;
