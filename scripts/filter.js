@@ -6,20 +6,29 @@ const filterIcons = document.querySelectorAll('.filter-panel__item-icon');
 const filterSubList = document.querySelectorAll('.filter-panel__sublist');
 
 const startPriceInput = document.querySelector('.filter-panel__price__input');
-const endPriceInput = document.querySelector('.filter-panel__price__input');
+const endPriceInput = document.querySelectorAll('.filter-panel__price__input')[1];
 const pricePickButton = document.querySelector('.filter-panel__button');
 
 const searchResultSpan = document.querySelector('.search-result');
 const headerTitle = document.querySelector('.header__title');
 
+const main = document.querySelector('.main');
+
 const items = document.querySelectorAll('.card');
+const saleBanner = document.querySelector('.sale');
 
 const filtersObj = {};
-const itemsObj = {};
 
-const findItems = async (input) => {
+const findItemsByQuery = async (input) => {
     const resultItems = [...items].filter(item => item.dataset.itemName.toLowerCase().includes(input.toLowerCase()));
     
+    resultItems.forEach(item => item.style.display = 'flex');
+    return resultItems.length;
+};
+
+const findItemsByPrice = async (startingPrice, endingPrice) => {
+    const resultItems = [...items].filter(item => startingPrice <= parseInt(item.dataset.price) && parseInt(item.dataset.price) <= endingPrice);
+
     resultItems.forEach(item => item.style.display = 'flex');
     return resultItems.length;
 };
@@ -60,8 +69,10 @@ const categoryOnClick = (e) => {
 
 const searchInputOnClick = async (e) => {
     if (filtersObj.currInput) {
+        main.insertBefore(saleBanner, main.firstChild);
         [...items].forEach(item => item.style.display = 'none');
-        const itemsLen = await findItems(filtersObj.currInput);
+
+        const itemsLen = await findItemsByQuery(filtersObj.currInput);
 
         headerTitle.textContent = `Поиск "${filtersObj.currInput}"`;
 
@@ -71,10 +82,24 @@ const searchInputOnClick = async (e) => {
 
 };
 
+const priceOnClick = async () => {
+    if (startPriceInput && endPriceInput) {
+        main.insertBefore(saleBanner, main.firstChild);
+        [...items].forEach(item => item.style.display = 'none');
+
+        const itemsLen = await findItemsByPrice(startPriceInput.value, endPriceInput.value);
+
+        headerTitle.textContent = `Поиск по диапазону цены от ${startPriceInput.value} до ${endPriceInput.value}`;
+
+        searchResultSpan.textContent = `Найдено результатов поиска: ${itemsLen}`;
+        searchResultSpan.style.display = 'inline';
+    }
+};
 
 searchInput.addEventListener('input', inputOnChange);
 [...filterTitles].forEach(filterTitle => filterTitle.addEventListener('click', categoryOnClick));
 searchInputButton.addEventListener('click', searchInputOnClick);
+pricePickButton.addEventListener('click', priceOnClick);
 
 //clear filters
 document.addEventListener('DOMContentLoaded', () => Object.keys(filtersObj).forEach(key => delete items[key]));
