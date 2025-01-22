@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./cart.css">
+    <title>Корзина</title>
+</head>
+<body>
+    <div class="background">
+        <img class='background__img' src="/images/catalog-bg.png" alt="background" draggable="false">
+    </div>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__inner">
+                <ul class="header__social-list">
+                    <li class="header__social-item">
+                        <a href="https://www.instagram.com/wunder.beer/">
+                            <div class="header__social-images">
+                                <img class='header__social-image' src="/images/inst1.png" alt="instagram">
+                                <img class='header__social-image' src="/images/inst2.png" alt="instagram">
+                                <img class='header__social-image' src="/images/inst3.png" alt="instagram">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="header__social-item">
+                        <a class='vk-link' href="https://vk.com/wunderbeer"></a>
+                    </li>
+                    <li class="header__social-item">
+                        <a class='facebook-link' href="#"></a>
+                    </li>
+                </ul>
+                <div class="header__logo">
+                    <a href="catalog.html" class="header__logo__link">
+                        <img class='header__logo-image' src="/images/logo.png" alt="logo">
+                        <h2 class="header__logo-title">Wunderbeer</h2>
+                    </a>
+                </div>
+                <ul class="header__action-list">
+                    <li class="header__action-item">
+                        <a class='search-link' href="#"></a>
+                    </li>
+                    <li class="header__action-item">
+                        <a class='cart-link' href="./cart.html"></a>
+                    </li>
+                </ul>
+            </div>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="./catalog.html">Каталог</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">Дистрибуция</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">Комплектация магазинов</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">О компании</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            <h2 class="header__title">Корзина</h2>
+        </header>
+        <main class="main">
+            <div class="empty-cart">
+                <h3 class="empty-cart__title">Пустая корзина</h3>
+                <p class="empty-cart__subtitle">В вашей корзине пока нет товаров <br> Легко добавляйте в корзину понравившиеся товары кликнув по кнопке</p>
+                <button class="empty-cart__button">Перейти в каталог</button>
+            </div>
+            <div class="filled-cart hidden">
+                <table class="filled-cart__table">
+                    <thead class="filled-cart__head">
+                        <tr>
+                            <th class="filled-cart__header"></th>
+                            <th class="filled-cart__header">Название товара</th>
+                            <th class="filled-cart__header">Кол-во</th>
+                            <th class="filled-cart__header">Стоимость</th>
+                            <th class="filled-cart__header"></th>
+                            <th class="filled-cart__header"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="filled-cart__body">
+                        <tr>
+                            <td>1</td>
+                            <td>пиво</td>
+                            <td>1</td>
+                            <td>600</td>
+                            <td>600*1</td>
+                            <td>удалить</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="filled-cart__total">
+                    <div class="filled-cart__total-left">
+                        Итого: <span class="filled-cart__price">1000</span>
+                    </div>
+                    <div class="filled-cart__total-right">
+                        <button class="filled-cart__button">Оформить заказ</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <ul class="footer__list">
+                <li class="footer__item">
+                    <div class="footer__logo">
+                        <img src="/images/logo.png" alt="logo" class="footer__logo-image">
+                        <h2 class="footer__logo-title">Wunderbeer</h2>
+                    </div>
+                    <p class="footer__description">В ассортименте в большом разнообразии представлены
+                        хмельные напитки собственного изготовления, а также от проверенных и надёжных партнёров.</p>
+                    <ul class="footer__social-list">
+                        <li class="footer__social-item">
+                            <a href="https://www.instagram.com/wunder.beer/">
+                                <div class="footer__social-images">
+                                    <img class='footer__social-image' src="/images/inst1.png" alt="instagram">
+                                    <img class='footer__social-image' src="/images/inst2.png" alt="instagram">
+                                    <img class='footer__social-image' src="/images/inst3.png" alt="instagram">
+                                </div>
+                            </a>
+                        </li>
+                        <li class="footer__social-item">
+                            <a class='vk-link' href="https://vk.com/wunderbeer"></a>
+                        </li>
+                        <li class="footer__social-item">
+                            <a class='facebook-link' href="#"></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="footer__item">
+                    <div class="footer__contacts">
+                        <p class="footer__contacts-title">Контактная информация</p>
+                        <ul class="footer__contacts-list">
+                            <li class="footer__contacts-item footer__contacts-map">
+                                <a href="https://yandex.ru/maps/-/CHaGuRzX" class="footer__contacts-item-link">Россия, Москва, Рязанский проспект 22, к2</a>                           
+                            </li>
+                            <li class="footer__contacts-item footer__contacts-tel1">
+                                <a href="tel:+74957404051" class="footer__contacts-item-link">+7 (495) 740-40-51</a>
+                            </li>
+                            <li class="footer__contacts-item footer__contacts-tel2">
+                                <a href="tel:+79259240700" class="footer__contacts-item-link">+7 (925) 924-07-00</a>
+                            </li>
+                            <li class="footer__contacts-item footer__contacts-mail">
+                                <a href="mailto:wunderbeer@mail.ru" class="footer__contacts-item-link">wunderbeer@mail.ru</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="footer__item">
+                    <ul class="footer__links">
+                        <li class="footer__links-item">
+                            <a href="./catalog.html" class="footer__links-item-link">Каталог</a>
+                        </li>
+                        <li class="footer__links-item">
+                            <a href="#" class="footer__links-item-link">Дистрибуция</a>
+                        </li>
+                        <li class="footer__links-item">
+                            <a href="#" class="footer__links-item-link">Комплектация магазинов</a>
+                        </li>
+                        <li class="footer__links-item">
+                            <a href="#" class="footer__links-item-link">О компании</a>
+                        </li>
+                        <li class="footer__links-item">
+                            <a href="#" class="footer__links-item-link">Контакты</a>
+                        </li>
+                        <li class="footer__links-item">
+                            <a href="./cart.html" class="footer__links-item-link footer__links-item-cart">Корзина</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="footer__rights">
+                <div class="footer__rights-item">ООО “Вундербир” 2010 - 2020</div>
+                <div class="footer__rights-item">Все права защищены ©</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
