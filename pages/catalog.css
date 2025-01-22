@@ -65,6 +65,7 @@
     --footer-item-max-w: 250px;
     --footer-contacts-gap: 29px;
     --footer-list-p: 10px 0 60px 0;
+    --footer-contacts-item-gap: 14px;
 }
 * {
     margin: 0;
@@ -607,7 +608,9 @@ body {
 .footer__contacts-item {
     font-size: 1rem;
     max-width: var(--footer-item-max-w);
-    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--footer-contacts-item-gap);
 }
 .footer__contacts-item-link {
     text-decoration: none;
@@ -631,10 +634,11 @@ body {
     content: '';
     background: url('/images/location.png') no-repeat center center;
     background-size: contain;
-    width: 14px;
+    min-width: 14px;
     height: 21px;
     display: inline-block;
     position: relative;
+    margin-right: 6px;
 }
 .footer__contacts-tel1::before {
     content: '';
