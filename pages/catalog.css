@@ -113,6 +113,7 @@ body {
 }
 .header__social-item, .header__action-item, .footer__social-item {
     display: inline-block;
+    position: relative;
 }
 .header__logo {
     display: flex;
@@ -692,4 +693,19 @@ body {
     font-weight: 500;
     position: absolute;
     top: -20px;
+}
+.added-to-cart-item {
+    position: relative;
+    border: 1px solid rgb(199, 199, 199);
+    background-color: rgb(199, 199, 199);
+}
+.cart-link__number {
+    position: absolute;
+    color: #000;
+    top: -30%;
+    right: -30%;
+    background-color: #fff;
+    border-radius: 50px;
+    width: 60%;
+    text-align: center;
 }
