@@ -108,14 +108,19 @@ const itemsObj = {
 
 const isCartFilled = () => {
     const currCart = localStorage.getItem('cart');
+    const mainBlock = document.querySelector('.main');
     
     if (!currCart) {
         emptyCartDiv.classList.remove('hidden');
         filledCartDiv.classList.add('hidden');
+
+        mainBlock.style.height = 'clamp(250px, 100dvh, 620px)';
     }
     else {
         emptyCartDiv.classList.add('hidden');
         filledCartDiv.classList.remove('hidden');
+
+        mainBlock.style.minHeight = 'clamp(250px, 100dvh, 620px)';
 
         tableBody.innerHTML = '';
 
@@ -126,12 +131,15 @@ const isCartFilled = () => {
 const getCartItems = (cart) => {
     cart.items.forEach(item => {
         if (item.id in itemsObj) {
-            insertItem(itemsObj[item.id]);
+            insertItem(itemsObj[item.id], item.id);
         }
     });
 };
 
-const insertItem = (itemObj) => {
+const insertItem = (itemObj, itemId) => {
+    const currCart = JSON.parse(localStorage.getItem('cart'));
+    const currItemAmount = currCart.items.find(item => item.id === itemId).amount;
+
     tableBody.innerHTML += `<tr class='filled-cart__item'>
         <td class='filled-cart__item-cell'>
             <img class='filled-cart__item-icon' src='${itemObj.img}'>
@@ -143,19 +151,39 @@ const insertItem = (itemObj) => {
             <p class='filled-cart__item-capacity'>${itemObj.capacity}</p>
         </td>
         <td class='filled-cart__item-cell'>
-
+            <p class='filled-cart__item-amount'>${currItemAmount}</p>
         </td>
         <td class='filled-cart__item-cell'>
-            <p class='filled-cart__item-total'></p>
+            <p class='filled-cart__item-total'>${+itemObj.price.slice(0, itemObj.price.length-2) * +currItemAmount} ₽</p>
         </td>
         <td class='filled-cart__item-cell'>
-            <p class='filled-cart__item-price'>${itemObj.price}</p>
+            <p class='filled-cart__item-price'>${itemObj.price} * ${currItemAmount}</p>
         </td>
         <td class='filled-cart__item-cell'>
 
         </td>
     </tr>`;
+
+    updateSummary();
 }
+
+const updateSummary = () => {
+    const currCart = JSON.parse(localStorage.getItem('cart'));
+    const summarySpan = document.querySelector('.filled-cart__price');
+
+    let total = 0;
+
+    currCart.items.forEach(item => {
+        if (item.id in itemsObj) {
+            const itemObj = itemsObj[item.id];
+            const currItemAmount = item.amount;
+            const itemTotalPrice = +itemObj.price.slice(0, itemObj.price.length-2) * currItemAmount;
+            total += itemTotalPrice;
+        }
+    });
+
+    summarySpan.textContent = `${total} ₽`;
+};
 
 goCatalogButton.addEventListener('click', ()=>location.href='./catalog.html');
 document.addEventListener('DOMContentLoaded', isCartFilled);
