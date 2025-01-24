@@ -8,21 +8,24 @@ const itemsObj = {
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '68 ₽'
+        price: '68 ₽',
+        img: './images/item1.png'
     },
     2: {
         name: 'Indian Stout',
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '108 ₽'
+        price: '108 ₽',
+        img: './images/item2.png'
     },
     3: {
         name: 'Italian Stout',
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '208 ₽'
+        price: '208 ₽',
+        img: './images/item3.png'
     },
 
     4: {
@@ -30,21 +33,24 @@ const itemsObj = {
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '508 ₽'
+        price: '508 ₽',
+        img: './images/item1.png'
     },
     5: {
         name: 'Indian Stout 2',
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '408 ₽'
+        price: '408 ₽',
+        img: './images/item2.png'
     },
     6: {
         name: 'Irish Stout 2',
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '108 ₽'
+        price: '108 ₽',
+        img: './images/item3.png'
     },
 
     7: {
@@ -52,21 +58,24 @@ const itemsObj = {
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '608 ₽'
+        price: '608 ₽',
+        img: './images/item3.png'
     },
     8: {
         name: 'Irish Stout 4',
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '208 ₽'
+        price: '208 ₽',
+        img: './images/item3.png'
     },
     9: {
         name: 'Irish Stout 5',
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '208 ₽'
+        price: '208 ₽',
+        img: './images/item3.png'
     },
 
     10: {
@@ -74,28 +83,30 @@ const itemsObj = {
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '208 ₽'
+        price: '208 ₽',
+        img: './images/item3.png'
     },
     11: {
         name: 'Irish Stout 7',
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '208 ₽'
+        price: '208 ₽',
+        img: './images/item3.png'
     },
     12: {
         name: 'Irish Stout 8',
         category: 'Пиво',
         subcategory: 'Светлое',
         capacity: '0.355 л',
-        price: '208 ₽'
+        price: '208 ₽',
+        img: './images/item3.png'
     }
 };
 
 const isCartFilled = () => {
     const currCart = localStorage.getItem('cart');
     
-    console.log(currCart)
     if (!currCart) {
         emptyCartDiv.classList.remove('hidden');
         filledCartDiv.classList.add('hidden');
@@ -103,8 +114,48 @@ const isCartFilled = () => {
     else {
         emptyCartDiv.classList.add('hidden');
         filledCartDiv.classList.remove('hidden');
+
+        getCartItems(JSON.parse(currCart));
     }
 };
+
+const getCartItems = (cart) => {
+    cart.items.forEach(item => {
+        if (item.id in itemsObj) {
+            //console.log(itemsObj[item.id])
+            insertItem(itemsObj[item.id]);
+        }
+    })
+};
+
+const insertItem = (itemObj) => {
+    const tableBody = document.querySelector('.filled-cart__body');
+    //tableBody.innerHTML = '';
+
+    tableBody.innerHTML += `<tr class='filled-cart__item'>
+        <td class='filled-cart__item-cell'>
+            <img class='filled-cart__item-icon'>
+        </td>
+        <td class='filled-cart__item-cell'>
+            <p class='filled-cart__item-name'></p>
+            <p class='filled-cart__item-category'></p>
+            <p class='filled-cart__item-subcategory'></p>
+            <p class='filled-cart__item-capacity'></p>
+        </td>
+        <td class='filled-cart__item-cell'>
+
+        </td>
+        <td class='filled-cart__item-cell'>
+            <p class='filled-cart__item-total'></p>
+        </td>
+        <td class='filled-cart__item-cell'>
+            <p class='filled-cart__item-price'></p>
+        </td>
+        <td class='filled-cart__item-cell'>
+
+        </td>
+    </tr>`;
+}
 
 goCatalogButton.addEventListener('click', ()=>location.href='./catalog.html');
 document.addEventListener('DOMContentLoaded', isCartFilled);
