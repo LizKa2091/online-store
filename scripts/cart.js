@@ -2,6 +2,8 @@ const goCatalogButton = document.querySelector('.empty-cart__button');
 const emptyCartDiv = document.querySelector('.empty-cart');
 const filledCartDiv = document.querySelector('.filled-cart');
 
+const tableBody = document.querySelector('.filled-cart__body');
+
 const itemsObj = {
     1: {
         name: 'Irish Stout Irish Stout',
@@ -115,6 +117,8 @@ const isCartFilled = () => {
         emptyCartDiv.classList.add('hidden');
         filledCartDiv.classList.remove('hidden');
 
+        tableBody.innerHTML = '';
+
         getCartItems(JSON.parse(currCart));
     }
 };
@@ -122,16 +126,12 @@ const isCartFilled = () => {
 const getCartItems = (cart) => {
     cart.items.forEach(item => {
         if (item.id in itemsObj) {
-            console.log(itemsObj[item.id])
             insertItem(itemsObj[item.id]);
         }
-    })
+    });
 };
 
 const insertItem = (itemObj) => {
-    const tableBody = document.querySelector('.filled-cart__body');
-    tableBody.innerHTML = '';
-
     tableBody.innerHTML += `<tr class='filled-cart__item'>
         <td class='filled-cart__item-cell'>
             <img class='filled-cart__item-icon' src='${itemObj.img}'>
