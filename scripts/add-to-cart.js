@@ -8,7 +8,7 @@ const updateCartAmount = () => {
     const cartIcon = document.querySelector('.cart-link__number');
 
     cartIcon.textContent = totalItemsAmount;
-}
+};
 
 const addToCart = (e) => {
     const currElId = e.target.dataset.itemId;
@@ -38,13 +38,9 @@ const addToCart = (e) => {
         const existingItem = cartObj.items.find(item => item.id === currElId);
 
         if (existingItem) {
+            existingItem.amount++;
             e.target.style.display = 'none';
-
-            currButton.innerHTML += `<div class='card__button-replaced'>
-                <button class='card__button-decrease' data-id='${currElId}'></button>
-                <p class='card__amount' data-id='${currElId}'>${++existingItem.amount}</p>
-                <button class='card__button-increase' data-id='${currElId}'></button>
-            </div>`;
+            updateItemDisplay(currButton, existingItem);
         }
         else {
             cartObj.items.push({
@@ -53,8 +49,8 @@ const addToCart = (e) => {
             });
             
             e.target.style.display = 'none';
-
             currButton.innerHTML += `<div class='card__button-replaced'>
+                <button class='card__button-decrease' data-id='${currElId}' style='display: none;'></button>
                 <p class='card__amount' data-id='${currElId}'>1</p>
                 <button class='card__button-increase' data-id='${currElId}'></button>
             </div>`;
@@ -70,42 +66,43 @@ const itemDecrease = (e) => {
     const itemId = e.target.dataset.id;
     
     const cartObj = JSON.parse(localStorage.getItem('cart'));
-    cartObj.items.filter(item => item.id === itemId)[0].amount--;
+    const item = cartObj.items.find(item => item.id === itemId);
+
+    if (item.amount > 1) {
+        item.amount--;
+    } 
+    else {
+        cartObj.items = cartObj.items.filter(item => item.id !== itemId);
+    }
 
     localStorage.setItem('cart', JSON.stringify(cartObj));
 
-    updateItem(e);
+    updateItemDisplay(e.target.closest('.card__button-replaced'), item);
+    updateCartAmount();
 };
 
 const itemIncrease = (e) => {
     const itemId = e.target.dataset.id;
     
     const cartObj = JSON.parse(localStorage.getItem('cart'));
-    cartObj.items.filter(item => item.id === itemId)[0].amount++;
+    const item = cartObj.items.find(item => item.id === itemId);
+    item.amount++;
 
     localStorage.setItem('cart', JSON.stringify(cartObj));
 
-    updateItem(e);
+    updateItemDisplay(e.target.closest('.card__button-replaced'), item);
+    updateCartAmount();
 };
 
-const updateItem = (e) => {
-    const itemId = e.target.dataset.id;
-    const cartObj = JSON.parse(localStorage.getItem('cart'));
+const updateItemDisplay = (buttonContainer, item) => {
+    const currCardAmount = buttonContainer.querySelector('.card__amount');
+    currCardAmount.textContent = item.amount;
 
-    const currItemAmount = cartObj.items.filter(item => item.id === itemId)[0].amount;
-
-    const cardAmounts = document.querySelectorAll('.card__amount');
-    const currCardAmount = [...cardAmounts].find(item => item.dataset.id === itemId);
-    currCardAmount.textContent = currItemAmount;
-
-    const buttonDecrease = document.querySelectorAll('.card__button-decrease');
-    const currButtonDecrease = [...buttonDecrease].find(item => item.dataset.id === itemId);
-
-    if (currItemAmount === 1 && currButtonDecrease) {
-        currButtonDecrease.style.display = 'none';
-    }
-    else if (currButtonDecrease) {
-        currButtonDecrease.style.display = 'inline';
+    const buttonDecrease = buttonContainer.querySelector('.card__button-decrease');
+    if (item.amount === 1 && buttonDecrease) {
+        buttonDecrease.style.display = 'none';
+    } else if (buttonDecrease) {
+        buttonDecrease.style.display = 'inline';
     }
 };
 
@@ -117,6 +114,29 @@ const addEventListeners = () => {
     [...buttonIncrease].forEach(button => button.addEventListener('click', itemIncrease));
 };
 
-[...buyButtons].forEach(el => el.addEventListener('click', addToCart))
+const loadItems = () => {
+    const cartObj = JSON.parse(localStorage.getItem('cart'));
+    if (cartObj) {
+        const buyButtons = document.querySelectorAll('.card__button');
 
-//добавить: как загрузилась страница сразу показываем кнопочки новые
+        buyButtons.forEach(button => {
+            const itemId = button.dataset.itemId;
+            const existingItem = cartObj.items.find(item => item.id === itemId);
+
+            if (existingItem) {
+                button.style.display = 'none';
+                const currButton = [...cards].find(card => card.dataset.id === itemId);
+                currButton.innerHTML += `<div class='card__button-replaced'>
+                    <button class='card__button-decrease' data-id='${itemId}'></button>
+                    <p class='card__amount' data-id='${itemId}'>${existingItem.amount}</p>
+                    <button class='card__button-increase' data-id='${itemId}'></button>
+                </div>`;
+                updateItemDisplay(currButton.querySelector('.card__button-replaced'), existingItem);
+            }
+        });
+        addEventListeners();
+    }
+};
+
+document.addEventListener('DOMContentLoaded', loadItems);
+[...buyButtons].forEach(el => el.addEventListener('click', addToCart))
