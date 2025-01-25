@@ -165,7 +165,7 @@ const insertItem = (itemObj, itemId) => {
             <p class='filled-cart__item-price'>${itemObj.price} * ${currItemAmount}</p>
         </td>
         <td class='filled-cart__item-cell'>
-
+            <button class='filled-cart__button-delete' data-id='${itemId}'></button>
         </td>
         </tr>`;
     }
@@ -194,7 +194,7 @@ const insertItem = (itemObj, itemId) => {
             <p class='filled-cart__item-price'>${itemObj.price} * ${currItemAmount}</p>
         </td>
         <td class='filled-cart__item-cell'>
-
+            <button class='filled-cart__button-delete' data-id='${itemId}'></button>
         </td>
         </tr>`;
     }
@@ -244,6 +244,26 @@ const decreaseItem = (button) => {
     updateCartAmount();
 };
 
+const deleteItem = (button) => {
+    const itemId = button.target.dataset.id;
+    
+    const cartObj = JSON.parse(localStorage.getItem('cart'));
+
+    if (cartObj.items.length === 1) {
+        localStorage.removeItem('cart');
+        isCartFilled();
+    }
+
+    cartObj.items = cartObj.items.filter(item => item.id !== itemId);
+
+    if (cartObj.items.length >= 1)  {
+        localStorage.setItem('cart', JSON.stringify(cartObj));
+    }
+
+    isCartFilled();
+    updateCartAmount();
+};
+
 const updateCartAmount = () => {
     const currCart = JSON.parse(localStorage.getItem('cart'));
 
@@ -256,8 +276,10 @@ const updateCartAmount = () => {
 const addEventListeners = () => {
     const increaseButtons = document.querySelectorAll('.item-increase');
     const decreaseButtons = document.querySelectorAll('.item-decrease');
+    const deleteButtons = document.querySelectorAll('.filled-cart__button-delete');
     [...increaseButtons].forEach(button => button.addEventListener('click', increaseItem));
     [...decreaseButtons].forEach(button => button.addEventListener('click', decreaseItem));
+    [...deleteButtons].forEach(button => button.addEventListener('click', deleteItem));
 };
 
 goCatalogButton.addEventListener('click', ()=>location.href='./catalog.html');

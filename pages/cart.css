@@ -302,6 +302,16 @@ body {
     width: 15.68px;
     height: 15.68px;
 }
+.filled-cart__button-delete {
+    background: url('/images/trash.png');
+    background-size: contain;
+    border: 0;
+    width: 16px;
+    height: 16px;
+}
+.filled-cart__button-delete:hover {
+    cursor: pointer;
+}
 .filled-cart__item-cell:first-of-type {
     padding: 20px 0 20px 47px;
 }
