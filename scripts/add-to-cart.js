@@ -101,10 +101,10 @@ const updateItem = (e) => {
     const buttonDecrease = document.querySelectorAll('.card__button-decrease');
     const currButtonDecrease = [...buttonDecrease].find(item => item.dataset.id === itemId);
 
-    if (currItemAmount === 1) {
+    if (currItemAmount === 1 && currButtonDecrease) {
         currButtonDecrease.style.display = 'none';
     }
-    else {
+    else if (currButtonDecrease) {
         currButtonDecrease.style.display = 'inline';
     }
 };
@@ -118,3 +118,5 @@ const addEventListeners = () => {
 };
 
 [...buyButtons].forEach(el => el.addEventListener('click', addToCart))
+
+//добавить: как загрузилась страница сразу показываем кнопочки новые
