@@ -126,6 +126,7 @@ const isCartFilled = () => {
 
         getCartItems(JSON.parse(currCart));
     }
+    addEventListeners();
 };
 
 const getCartItems = (cart) => {
@@ -140,7 +141,8 @@ const insertItem = (itemObj, itemId) => {
     const currCart = JSON.parse(localStorage.getItem('cart'));
     const currItemAmount = currCart.items.find(item => item.id === itemId).amount;
 
-    tableBody.innerHTML += `<tr class='filled-cart__item'>
+    if (currItemAmount === 1) {
+        tableBody.innerHTML += `<tr class='filled-cart__item'>
         <td class='filled-cart__item-cell'>
             <img class='filled-cart__item-icon' src='${itemObj.img}'>
         </td>
@@ -151,7 +153,10 @@ const insertItem = (itemObj, itemId) => {
             <p class='filled-cart__item-capacity'>${itemObj.capacity}</p>
         </td>
         <td class='filled-cart__item-cell'>
-            <p class='filled-cart__item-amount'>${currItemAmount}</p>
+            <div class='filled-cart__item-cell__item-actions'>
+                <p class='filled-cart__item-amount' data-id='${itemId}'>${currItemAmount}</p>
+                <button class='filled-cart__action-button item-increase' data-id='${itemId}'></button>
+            </div>
         </td>
         <td class='filled-cart__item-cell'>
             <p class='filled-cart__item-total'>${+itemObj.price.slice(0, itemObj.price.length-2) * +currItemAmount} ₽</p>
@@ -162,7 +167,37 @@ const insertItem = (itemObj, itemId) => {
         <td class='filled-cart__item-cell'>
 
         </td>
-    </tr>`;
+        </tr>`;
+    }
+    else {
+        tableBody.innerHTML += `<tr class='filled-cart__item'>
+        <td class='filled-cart__item-cell'>
+            <img class='filled-cart__item-icon' src='${itemObj.img}'>
+        </td>
+        <td class='filled-cart__item-cell'>
+            <p class='filled-cart__item-name'>${itemObj.name}</p>
+            <p class='filled-cart__item-category'>${itemObj.category}</p>
+            <p class='filled-cart__item-subcategory'>${itemObj.subcategory}</p>
+            <p class='filled-cart__item-capacity'>${itemObj.capacity}</p>
+        </td>
+        <td class='filled-cart__item-cell'>
+            <div class='filled-cart__item-cell__item-actions'>
+                <button class='filled-cart__action-button item-decrease' data-id='${itemId}'></button>  
+                <p class='filled-cart__item-amount' data-id='${itemId}'>${currItemAmount}</p>
+                <button class='filled-cart__action-button item-increase' data-id='${itemId}'></button>
+            </div>
+        </td>
+        <td class='filled-cart__item-cell'>
+            <p class='filled-cart__item-total'>${+itemObj.price.slice(0, itemObj.price.length-2) * +currItemAmount} ₽</p>
+        </td>
+        <td class='filled-cart__item-cell'>
+            <p class='filled-cart__item-price'>${itemObj.price} * ${currItemAmount}</p>
+        </td>
+        <td class='filled-cart__item-cell'>
+
+        </td>
+        </tr>`;
+    }
 
     updateSummary();
 }
@@ -183,6 +218,46 @@ const updateSummary = () => {
     });
 
     summarySpan.textContent = `${total} ₽`;
+};
+
+const increaseItem = (button) => {
+    const itemId = button.target.dataset.id;
+    
+    const cartObj = JSON.parse(localStorage.getItem('cart'));
+    cartObj.items.filter(item => item.id === itemId)[0].amount++;
+
+    localStorage.setItem('cart', JSON.stringify(cartObj));
+
+    isCartFilled(); 
+    updateCartAmount();
+};
+
+const decreaseItem = (button) => {
+    const itemId = button.target.dataset.id;
+    
+    const cartObj = JSON.parse(localStorage.getItem('cart'));
+    cartObj.items.filter(item => item.id === itemId)[0].amount--;
+
+    localStorage.setItem('cart', JSON.stringify(cartObj));
+
+    isCartFilled();
+    updateCartAmount();
+};
+
+const updateCartAmount = () => {
+    const currCart = JSON.parse(localStorage.getItem('cart'));
+
+    const totalItemsAmount = currCart?.items.reduce((sum, item) => sum + item.amount, 0);
+    const cartIcon = document.querySelector('.cart-link__number');
+
+    cartIcon.textContent = totalItemsAmount;
+};
+
+const addEventListeners = () => {
+    const increaseButtons = document.querySelectorAll('.item-increase');
+    const decreaseButtons = document.querySelectorAll('.item-decrease');
+    [...increaseButtons].forEach(button => button.addEventListener('click', increaseItem));
+    [...decreaseButtons].forEach(button => button.addEventListener('click', decreaseItem));
 };
 
 goCatalogButton.addEventListener('click', ()=>location.href='./catalog.html');

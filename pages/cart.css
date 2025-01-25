@@ -279,6 +279,29 @@ body {
     text-align: center;
     padding: 20px 0;
 }
+.filled-cart__item-cell__item-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+}
+.filled-cart__action-button:hover {
+    cursor: pointer;
+}
+.item-decrease {
+    background: url('/images/action-minus.png') no-repeat center center;
+    background-size: contain;
+    border: 0;
+    width: 15.68px;
+    height: 4.28px;
+}
+.item-increase {
+    background: url('/images/action-plus.png') no-repeat center center;
+    background-size: contain;
+    border: 0;
+    width: 15.68px;
+    height: 15.68px;
+}
 .filled-cart__item-cell:first-of-type {
     padding: 20px 0 20px 47px;
 }
