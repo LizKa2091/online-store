@@ -710,3 +710,34 @@ body {
     text-align: center;
     text-decoration: none;
 }
+.card__button-replaced {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    border: 1px solid rgb(199, 199, 199);
+    background-color: rgb(199, 199, 199);
+    width: 81.78%;
+    padding: var(--card-item-button-p);
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 50px;
+    position: relative;
+    cursor: default;
+}
+.card__button-increase {
+    background: url('/images/plus.png') no-repeat center center;
+    background-size: contain;
+    border: 0;
+    width: 15.68px;
+    height: 15.68px;
+}
+.card__button-decrease {
+    background: url('/images/minus.png') no-repeat center center;
+    background-size: contain;
+    border: 0;
+    width: 15.68px;
+    height: 4.28px;
+}
+.card__button-increase:hover, .card__button-decrease:hover {
+    cursor: pointer;
+}
