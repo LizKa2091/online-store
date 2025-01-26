@@ -1,4 +1,5 @@
 const goCatalogButton = document.querySelector('.empty-cart__button');
+const placeOrderButton = document.querySelector('.filled-cart__button');
 const emptyCartDiv = document.querySelector('.empty-cart');
 const filledCartDiv = document.querySelector('.filled-cart');
 
@@ -283,4 +284,5 @@ const addEventListeners = () => {
 };
 
 goCatalogButton.addEventListener('click', ()=>location.href='./catalog.html');
+placeOrderButton.addEventListener('click', ()=>location.href='./order.html');
 document.addEventListener('DOMContentLoaded', isCartFilled);
