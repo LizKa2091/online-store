@@ -21,7 +21,7 @@
     --main-form-button-w: 350px;
     --main-form-radio-img-w: 37px;
     --main-form-radio-img-h: 30px;
-    --main-form-checkbox-gap: 16px;
+    --main-form-checkbox-gap: 10px;
     --img-default-scale: 30px;
     --img-thinner-scale: 28px;
     --filter-panel-bg: #262022;
@@ -70,8 +70,13 @@
     --sale-wheat-w: 37px;
     --sale-wheat-h: 14px;
     --aside-gap: 30px;
-    --aside-w: 522px;
+    --aside-w: 350px;
     --aside-p: 18px 20px;
+    --aside-item-w: 36px;
+    --aside-item-h: 95px;
+    --aside-item-gap: 40px;
+    --aside-list-gap: 20px;
+    --aside-list-padding: 14px 29px 24.5px 29px;
     --footer-bg-color: #262022;
     --footer-h: 412px;
     --footer-m-top: 100px;

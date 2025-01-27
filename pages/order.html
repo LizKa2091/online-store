@@ -79,15 +79,15 @@
                     <form action="" class="main__form">
                         <div class="main__form__column">
                             <label for="fio" class="main__form__label">ФИО<span class="main__form__required">*</span></label>
-                            <input type="text" id="fio" name="fio" class="main__form__input">
+                            <input type="text" id="fio" name="fio" class="main__form__input" required>
                         </div>
                         <div class="main__form__column">
                             <label for="email" class="main__form__label">Email<span class="main__form__required">*</span></label>
-                            <input type="email" id="email" name="email" class="main__form__input">
+                            <input type="email" id="email" name="email" class="main__form__input" required>
                         </div>
                         <div class="main__form__column">
                             <label for="tel" class="main__form__label">Телефон<span class="main__form__required">*</span></label>
-                            <input type="tel" id="tel" name="tel" class="main__form__input">
+                            <input type="tel" id="tel" name="tel" class="main__form__input" required>
                         </div>
                         <div class="main__form__column">
                             <label for="comment" class="main__form__label">Комментарий к заказу</label>
@@ -97,26 +97,26 @@
                             <fieldset class="main__form__fieldset">
                                 <span class="main__form__legend">Способ доставки<span class="main__form__required">*</span></span> 
                                 <div class="main__form__radio-group">
-                                    <input type="radio" id="delivery" name="delivery-method" class="main__form__radio">
+                                    <input type="radio" id="delivery" name="delivery-method" class="main__form__radio" required>
                                     <label for="delivery" class="main__form__radio-label">Доставка</label>
                                 </div>
                                 <div class="main__form__radio-group">
-                                    <input type="radio" id="take-away" name="delivery-method" class="main__form__radio">
+                                    <input type="radio" id="take-away" name="delivery-method" class="main__form__radio" required>
                                     <label for="take-away" class="main__form__radio-label">Самовывоз</label>
                                 </div>
                             </fieldset> 
                         </div>
                         <div class="main__form__column">
                             <label for="address" class="main__form__label">Адрес доставки<span class="main__form__required">*</span></label>
-                            <input type="text" id="address" name="address" class="main__form__input">
+                            <input type="text" id="address" name="address" class="main__form__input" required>
                         </div>
                         <div class="main__form__column main__form__submit">
                             <button type="submit" class="main__form__button">Оформить заказ</button>
                         </div>
     
                         <div class="main__form__column main__form__checkbox">
-                            <input type="checkbox" name="agreement" id="agreement" class="main__form__checkbox-input">
-                            <label for="agreement" class="main__form__checkbox-label">Я согласен на обработку моих <a href="#" class="main__form__link">персональных данных</a></label>
+                            <input type="checkbox" name="agreement" id="agreement" class="main__form__checkbox-input" required>
+                            <label for="agreement" class="main__form__checkbox-label">Я согласен на обработку моих <a href="#" class="main__form__link">персональных данных</a><span class="main__form__required">*</span></label>
                         </div>
                     </form>
                 </div>
@@ -128,7 +128,7 @@
                 <div class="aside__total first-aside-col">
                     <div class="aside__total__column">
                         <p class="aside__total__title">Всего товаров:</p>
-                        <p class="aside__total__subtitle aside-amount">8</p>
+                        <p class="aside__total__subtitle aside-amount"></p>
                     </div>
                     <div class="aside__total__column">
                         <p class="aside__total__title">Доставка:</p>
@@ -138,7 +138,7 @@
                 <hr class="aside__hr">
                 <div class="aside__summary second-aside-col">
                     <p class="aside__summary__title">Итого:</p>
-                    <p class="aside__summary__subtitle">1000₽</p>
+                    <p class="aside__summary__subtitle"></p>
                 </div>
             </aside>
         </div>
@@ -220,5 +220,6 @@
         </div>
     </footer>
     <script src="/scripts/cart-common.js"></script>
+    <script src="/scripts/order.js"></script>
 </body>
 </html>

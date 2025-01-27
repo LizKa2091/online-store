@@ -133,13 +133,12 @@ const isCartFilled = () => {
 const getCartItems = (cart) => {
     cart.items.forEach(item => {
         if (item.id in itemsObj) {
-            insertItem(itemsObj[item.id], item.id);
+            insertItem(itemsObj[item.id], item.id, cart);
         }
     });
 };
 
-const insertItem = (itemObj, itemId) => {
-    const currCart = JSON.parse(localStorage.getItem('cart'));
+const insertItem = (itemObj, itemId, currCart) => {
     const currItemAmount = currCart.items.find(item => item.id === itemId).amount;
 
     if (currItemAmount === 1) {
