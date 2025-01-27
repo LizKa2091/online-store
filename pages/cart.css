@@ -126,6 +126,7 @@
     border-radius: 50px;
     width: clamp(125px, 100dvw, 255px);
     height: var(--cart-button-h);
+    transition: all .5s ease;
 }
 
 .filter-panel__item-icon img {
@@ -167,4 +168,7 @@
 }
 .filled-cart__item-cell:nth-of-type(2), .filled-cart__header:nth-of-type(2) {
     text-align: left;
+}
+.filled-cart__button:hover {
+    background-color: var(--button-orange-bg-hover);
 }

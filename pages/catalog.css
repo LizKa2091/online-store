@@ -110,6 +110,7 @@
     background-color: var(--button-orange-bg);
     width: 100%;
     height: var(--filter-panel-button-h);
+    transition: all .5s ease;
 }
 
 .filter-panel__title::after {
@@ -191,6 +192,15 @@
 .contact-panel__button {
     margin-top: var(--contact-panel-button-m-top);
 }
+.success {
+    filter: blur(3px)
+}
+.success-p {
+    color: var(--button-orange-bg);
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 10px;
+}
 
 .main {
     display: flex;
@@ -233,6 +243,7 @@
     border-radius: 50px;
     padding: var(--card-item-button-p);
     width: 81.78%;
+    transition: all .5s ease;
 }
 .card__sale, .card__new {
     font-weight: 600;
@@ -360,4 +371,10 @@
 }
 .contact-panel__input::placeholder {
     color: #000;
+}
+.filter-panel__item-title:hover, .filter-panel__subitem:hover {
+    color: var(--card-new-green-bg);
+}
+.filter-panel__button:hover, .contact-panel__button:hover, .card__button:hover {
+    background-color: var(--button-orange-bg-hover);
 }

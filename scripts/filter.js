@@ -17,6 +17,8 @@ const main = document.querySelector('.main');
 const items = document.querySelectorAll('.card');
 const saleBanner = document.querySelector('.sale');
 
+const contactPanelButton = document.querySelector('.contact-panel__button');
+
 const filtersObj = {};
 
 const findItemsByQuery = async (input) => {
@@ -96,6 +98,41 @@ const priceOnClick = async () => {
     }
 };
 
+const contactPanelProccess = (e) => {
+    e.preventDefault();
+
+    const contactInputs = document.querySelectorAll('.contact-panel__input');
+    const areInputsFilled = [...contactInputs].every(input => input.value !== '');
+
+    [...contactInputs].filter(input => input.value === '').forEach(el => {
+        el.style.border = '1px solid red';
+    });
+
+    [...contactInputs].filter(input => input.value !== '').forEach(el => {
+        el.style.border = '0';
+    });
+
+    if (areInputsFilled) {
+        
+        const contactPanel = document.querySelector('.contact-panel');
+        const contactPanelButton = document.querySelector('.contact-panel__button');
+        
+        contactPanel.classList.add('success');
+        e.target.style.cursor = 'not-allowed';
+
+        setTimeout(() => {
+            contactPanel.classList.toggle('success');
+            contactPanelButton.classList.add('hidden');
+            contactPanel.innerHTML += `<p class='success-p'>Форма успешно отправлена!</p>`;
+        }, 3000);
+    }
+    else {
+        [...contactInputs].filter(input => input.value === '').forEach(el => {
+            el.style.border = '1px solid red';
+        });
+    }
+}
+
 searchInput.addEventListener('input', inputOnChange);
 [...filterTitles].forEach(filterTitle => filterTitle.addEventListener('click', categoryOnClick));
 searchInputButton.addEventListener('click', searchInputOnClick);
@@ -103,3 +140,4 @@ pricePickButton.addEventListener('click', priceOnClick);
 
 //clear filters
 document.addEventListener('DOMContentLoaded', () => Object.keys(filtersObj).forEach(key => delete items[key]));
+contactPanelButton.addEventListener('click', contactPanelProccess);
