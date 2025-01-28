@@ -248,6 +248,15 @@ body {
 
 .cart-link__number {
     display: inline-block;
+    position: absolute;
+    color: #000;
+    top: -30%;
+    right: -30%;
+    background-color: #fff;
+    border-radius: 50px;
+    width: 60%;
+    text-align: center;
+    text-decoration: none;
     transition: transform 0.2s ease-in-out;
 }
 

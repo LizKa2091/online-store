@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./order.css">
+    <link rel="stylesheet" href="./item-card.css">
     <link rel="stylesheet" href="../styles/common-blocks.css">
-    <title>Оформить заказ</title>
+    <title>Товар</title>
 </head>
 <body>
     <div class="background">
@@ -70,77 +70,40 @@
                     </li>
                 </ul>
             </nav>
-            <h2 class="header__title">Оформить заказ</h2>
+            <h2 class="header__title">Товар</h2>
         </header>
-        <div class="inner">
-            <main class="main">
-                <div class="main__inner">
-                    <h3 class="main__header">Ваши контакты</h3>
-                    <form action="" class="main__form">
-                        <div class="main__form__column">
-                            <label for="fio" class="main__form__label">ФИО<span class="main__form__required">*</span></label>
-                            <input type="text" id="fio" name="fio" class="main__form__input" required>
+        <div class="content-wrapper">
+            <a class="content__link" href="./catalog.html">Вернуться в каталог</a>
+            <div class="content">
+                <main class="main">
+                    <div class="main__item">
+                        <img src="/images/item1.png" alt="item" class="main__item-icon">
+                        <div class="main__item-info">
+                            <h4 class="main__item__title">Irish Stout</h4>
+                            <p class="main__item__subtitle">Светлое, фильтрованное</p>
+                            <p class="main__item__subtitle">Крепость</p>
+                            <p class="main__item__value">4.5 %</p>
+                            <p class="main__item__subtitle">Объём</p>
+                            <p class="main__item__value">0.355 л</p>
+                            <p class="main__item__price">68 ₽<span class="main__item__value">шт.</span></p>
                         </div>
-                        <div class="main__form__column">
-                            <label for="email" class="main__form__label">Email<span class="main__form__required">*</span></label>
-                            <input type="email" id="email" name="email" class="main__form__input" required>
-                        </div>
-                        <div class="main__form__column">
-                            <label for="tel" class="main__form__label">Телефон<span class="main__form__required">*</span></label>
-                            <input type="tel" id="tel" name="tel" class="main__form__input" required>
-                        </div>
-                        <div class="main__form__column">
-                            <label for="comment" class="main__form__label">Комментарий к заказу</label>
-                            <textarea id="comment" name="comment" class="main__form__input-textarea" rows="8" cols="33"></textarea>
-                        </div>
-                        <div class="main__form__column">
-                            <fieldset class="main__form__fieldset">
-                                <span class="main__form__legend">Способ доставки<span class="main__form__required">*</span></span> 
-                                <div class="main__form__radio-group">
-                                    <input type="radio" id="delivery" name="delivery-method" class="main__form__radio" required>
-                                    <label for="delivery" class="main__form__radio-label">Доставка</label>
-                                </div>
-                                <div class="main__form__radio-group">
-                                    <input type="radio" id="take-away" name="delivery-method" class="main__form__radio" required>
-                                    <label for="take-away" class="main__form__radio-label">Самовывоз</label>
-                                </div>
-                            </fieldset> 
-                        </div>
-                        <div class="main__form__column">
-                            <label for="address" class="main__form__label">Адрес доставки<span class="main__form__required">*</span></label>
-                            <input type="text" id="address" name="address" class="main__form__input" required>
-                        </div>
-                        <div class="main__form__column main__form__submit">
-                            <button type="submit" class="main__form__button">Оформить заказ</button>
-                        </div>
-    
-                        <div class="main__form__column main__form__checkbox">
-                            <input type="checkbox" name="agreement" id="agreement" class="main__form__checkbox-input" required>
-                            <label for="agreement" class="main__form__checkbox-label">Я согласен на обработку моих <a href="#" class="main__form__link">персональных данных</a><span class="main__form__required">*</span></label>
-                        </div>
-                    </form>
-                </div>
-            </main>
-            <aside class="aside">
-                <h4 class="aside__title">Выбранные товары</h4>
-                <ul class="aside__list"></ul>
-                <hr class="aside__hr">
-                <div class="aside__total first-aside-col">
-                    <div class="aside__total__column">
-                        <p class="aside__total__title">Всего товаров:</p>
-                        <p class="aside__total__subtitle aside-amount"></p>
                     </div>
-                    <div class="aside__total__column">
-                        <p class="aside__total__title">Доставка:</p>
-                        <p class="aside__total__subtitle aside-delivery">Бесплатно</p>
+                </main>
+                <aside class="aside">
+                    <div class="contact-panel">
+                        <h3 class="contact-panel__title">Остались вопросы?</h3>
+                        <span class="contact-panel__subtitle">Оставьте свой номер телефона и мы Вам поможем</span>
+                        <form action="" class="contact-panel__form">
+                            <div class="contact-panel__inputs">
+                                <input type="text" class="contact-panel__input" placeholder="Ваше имя">
+                                <input type="tel" class="contact-panel__input" placeholder="Ваш номер">
+                            </div>
+                            <span class="contact-panel__extra">Нажимая на кнопку "отправить", вы даёте согласие на обработку своих <a href="#" class="contact-panel__extra-link">персональных данных</a></span>
+                            <button class="contact-panel__button" type="submit">Отправить</button>
+                        </form>
                     </div>
-                </div>
-                <hr class="aside__hr">
-                <div class="aside__summary second-aside-col">
-                    <p class="aside__summary__title">Итого:</p>
-                    <p class="aside__summary__subtitle"></p>
-                </div>
-            </aside>
+                </aside>
+            </div>
         </div>
     </div>
     <footer class="footer">
@@ -219,7 +182,7 @@
             </div>
         </div>
     </footer>
+    <script src="/scripts/item-card.js"></script>
     <script src="/scripts/cart-common.js"></script>
-    <script src="/scripts/order.js"></script>
 </body>
 </html>
