@@ -3,17 +3,21 @@
 }
 .content {
     display: flex;
+    padding: 64px 0;
+}
+.main {
+    padding-bottom: 57px;
 }
 .main__item {
     display: flex;
-    padding: 39px 95px;
+    padding: 0 95px;
 }
 .main__item-icon {
     width: 255px;
     height: 675px;
 }
 .main__item-info {
-    padding: 21px 125px;
+    padding: 0 84px;
 }
 .main__item__title {
     margin-bottom: 25px;
@@ -33,6 +37,105 @@
 }
 .main__item__price {
     margin-top: 37px;
+}
+.item-decrease {
+    background: url('/images/action-minus.png') no-repeat center center;
+    background-size: contain;
+    border: 0;
+    width: var(--item-action-w);
+    height: var(--item-decrease-h);
+}
+.item-increase {
+    background: url('/images/action-plus.png') no-repeat center center;
+    background-size: contain;
+    border: 0;
+    width: var(--item-action-w);
+    height: var(--item-increase-h);
+}
+.main__item-action-amount {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.item-buy {
+    font-weight: 500;
+    background-color: var(--button-orange-bg);
+    border: 1px solid var(--button-orange-bg);
+    border-radius: 50px;
+    width: clamp(53px, 100dvw, 175px);
+    height: 44px;
+}
+.item-buy-once {
+    font-weight: 500;
+    color: #fff;
+    background-color: var(--card-new-green-bg);
+    border: 1px solid var(--card-new-green-bg);
+    border-radius: 50px;
+    width: 100%;
+    height: 44px;
+}
+.main__item-action {
+    display: flex;
+    gap: 10px 20px;
+    flex-wrap: wrap;
+}
+
+.section__list {
+    display: flex;
+    justify-content: center;
+}
+.section__item {
+    display: inline-block;
+}
+.section__item__header {
+    font-size: 1.125rem;
+    max-width: 275px;
+    width: 100dvw;
+    text-align: center;
+    padding: 9px 0;
+    position: relative;
+}
+.section__item__header-link {
+    color: #000;
+    text-decoration: none;
+}
+.current-item {
+    font-size: 1.125rem;
+    font-weight: 500;
+    background-color: rgba(190, 190, 190);
+}
+.current-item::before {
+    content: '';
+    background: url('/images/wheat-yellow.png') no-repeat center center;
+    background-size: contain;
+    width: 36.56px;
+    height: 14px;
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: rotateY(180deg);
+    margin-right: 8.44px;
+}
+.current-item::after {
+    content: '';
+    background: url('/images/wheat-yellow.png') no-repeat center center;
+    background-size: contain;
+    width: 36.56px;
+    height: 14px;
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    margin-left: 8.44px;
+}
+.section__item__content {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(190, 190, 190);
+    color: #323232;
+    padding: 35px 0;
+    display: flex;
+    justify-content: center;
 }
 
 .content__link {
@@ -139,4 +242,7 @@
 }
 .main__item__value:last-of-type {
     margin-left: 17px;
+}
+.main__item-action__button:hover {
+    cursor: pointer;
 }
