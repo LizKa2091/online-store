@@ -1,3 +1,6 @@
+const params = new URLSearchParams(window.location.search);
+const itemId = +params.get('id');
+
 const itemDescriptionLinks = document.querySelectorAll('.section__item__header-link');
 
 const switchDescription = (e) => {
