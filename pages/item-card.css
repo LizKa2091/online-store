@@ -137,6 +137,12 @@
     display: flex;
     justify-content: center;
 }
+.section .wrapper {
+    padding-top: 35px;
+}
+.section__header {
+    font-size: 1.875rem;
+}
 
 .content__link {
     color: #000;
