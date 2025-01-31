@@ -1,9 +1,15 @@
 const itemCards = document.querySelectorAll('.card');
 
 const transferItem = (e) => {
-    let currItemName = e.target.dataset.itemName || e.target.parentElement.dataset.itemName;
-    let currItemId = e.target.dataset.id || e.target.parentElement.dataset.id;
+    const currItem = e.target.closest('.card');;
+    if (!currItem) return;
+
+    const isQuantityButton = e.target.classList.contains('card__button-decrease') || e.target.classList.contains('card__button-increase') || e.target.classList.contains('card__button-replaced') || e.target.classList.contains('card__button');
+    if (isQuantityButton) return;
     
+    let currItemName = currItem.dataset.itemName;
+    let currItemId = currItem.dataset.id;
+
     if (currItemName && currItemId) {
         window.location.href = `item-card.html?id=${currItemId}`;
     }

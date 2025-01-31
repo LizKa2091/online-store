@@ -244,6 +244,7 @@
     padding: var(--card-item-button-p);
     width: 81.78%;
     transition: all .5s ease;
+    z-index: 1;
 }
 .card__sale, .card__new {
     font-weight: 600;
@@ -345,6 +346,7 @@
     gap: var(--card-button-replaced-gap);
     position: relative;
     cursor: default;
+    z-index: 1;
 }
 .card__button-increase {
     background: url('/images/plus.png') no-repeat center center;

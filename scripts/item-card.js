@@ -2,6 +2,10 @@ const params = new URLSearchParams(window.location.search);
 const itemId = +params.get('id');
 
 const itemDescriptionLinks = document.querySelectorAll('.section__item__header-link');
+const currItemAmount = document.querySelector('.main__item-action__amount');
+const itemDecreaseButton = document.querySelector('.item-decrease');
+const itemIncreaseButton = document.querySelector('.item-increase');
+const buyItemButton = document.querySelector('.item-buy');
 
 const itemsObj = {
     1: {
@@ -136,6 +140,77 @@ else {
     throw new Error(`item wasn't found`);
 }
 
+const updateUI = (amount) => {
+    if (amount === undefined) {
+        currItemAmount.textContent = '';
+        itemDecreaseButton.classList.add('hidden');
+        itemIncreaseButton.classList.add('hidden');
+        buyItemButton.classList.remove('hidden');
+    } 
+    else {
+        currItemAmount.textContent = amount;
+
+        if (amount === 1) {
+            itemDecreaseButton.classList.add('hidden');
+            itemIncreaseButton.classList.remove('hidden');
+        } 
+        else {
+            itemDecreaseButton.classList.remove('hidden');
+            itemIncreaseButton.classList.remove('hidden');
+        }
+    }
+};
+
+const itemDecrease = (e) => {
+    const cartObj = JSON.parse(localStorage.getItem('cart'));
+    const item = cartObj.items.find(item => +item.id === itemId);
+    console.log(item)
+    
+    if (item) {
+        item.amount--;
+        if (item.amount <= 1) {
+            itemDecreaseButton.classList.add('hidden');
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cartObj));
+
+        updateUI(item.amount);
+        updateCartAmount();
+    }
+};
+
+const itemIncrease = (e) => {
+    const cartObj = JSON.parse(localStorage.getItem('cart'));
+    const item = cartObj.items.find(item => +item.id === itemId);
+
+    if (item) {
+        item.amount++;
+        localStorage.setItem('cart', JSON.stringify(cartObj));
+
+        updateUI(item.amount);
+        updateCartAmount();
+    }
+};
+
+const getItemAmount = () => {
+    const currCart = JSON.parse(localStorage.getItem('cart'));
+    const currItemInCart = currCart?.items.find(item => +item.id === itemId);
+
+    if (currItemInCart) {
+        updateUI(currItemInCart.amount);
+    } 
+    else {
+        updateUI(undefined);
+    }
+};
+
+const updateCartAmount = () => {
+    const currCart = JSON.parse(localStorage.getItem('cart'));
+    const totalItemsAmount = currCart?.items.reduce((sum, item) => sum + item.amount, 0) || 0;
+    const cartIcon = document.querySelector('.cart-link__number');
+    cartIcon.textContent = totalItemsAmount;
+};
+
 const switchDescription = (e) => {
     e.preventDefault();
 
@@ -150,4 +225,33 @@ const switchDescription = (e) => {
     }
 };
 
+const switchItemActionAmount = () => {
+    const cartObj = JSON.parse(localStorage.getItem('cart')) || { items: [] };
+    const item = cartObj.items.find(item => +item.id === itemId);
+
+    if (!item) {
+        cartObj.items.push({ id: itemId, amount: 1 });
+        localStorage.setItem('cart', JSON.stringify(cartObj));
+
+        updateUI(1);
+    }
+    else {
+        updateUI(item.amount);
+    }
+};
+
+document.addEventListener('DOMContentLoaded', getItemAmount);
+itemDecreaseButton.addEventListener('click', itemDecrease);
+itemIncreaseButton.addEventListener('click', itemIncrease);
 [...itemDescriptionLinks].forEach(link => link.addEventListener('click', switchDescription));
+
+buyItemButton.addEventListener('click', () => {
+    const cartObj = JSON.parse(localStorage.getItem('cart'));
+    const item = cartObj?.items.find(item => +item.id === itemId);
+    if (!item) {
+        switchItemActionAmount();
+    } 
+    else {
+        location.href = './cart.html';
+    }
+});

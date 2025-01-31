@@ -76,8 +76,13 @@
 }
 .main__item-action {
     display: flex;
+    flex-direction: column;
     gap: 10px 20px;
     flex-wrap: wrap;
+}
+.main__item-action__amount {
+    font-size: 1.125rem;
+    font-weight: 500;
 }
 
 .section__list {
