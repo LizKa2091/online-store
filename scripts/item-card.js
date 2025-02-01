@@ -164,10 +164,10 @@ const updateUI = (amount) => {
 const itemDecrease = (e) => {
     const cartObj = JSON.parse(localStorage.getItem('cart'));
     const item = cartObj.items.find(item => +item.id === itemId);
-    console.log(item)
     
     if (item) {
         item.amount--;
+
         if (item.amount <= 1) {
             itemDecreaseButton.classList.add('hidden');
         }
@@ -250,6 +250,7 @@ buyItemButton.addEventListener('click', () => {
     const item = cartObj?.items.find(item => +item.id === itemId);
     if (!item) {
         switchItemActionAmount();
+        updateCartAmount();
     } 
     else {
         location.href = './cart.html';
