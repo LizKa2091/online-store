@@ -230,7 +230,8 @@ const switchItemActionAmount = () => {
     const item = cartObj.items.find(item => +item.id === itemId);
 
     if (!item) {
-        cartObj.items.push({ id: itemId, amount: 1 });
+        const convertedItemId = itemId.toString();
+        cartObj.items.push({ id: convertedItemId, amount: 1 });
         localStorage.setItem('cart', JSON.stringify(cartObj));
 
         updateUI(1);
