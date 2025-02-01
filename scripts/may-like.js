@@ -166,10 +166,13 @@ const findItemsMayLike = () => {
             }
         }
     }
+
+    addEventListenersToButtons();
+    addEventListenersToCards();
 };
 
 const insertItem = (item, itemId) => {
-    mayLikeDiv.innerHTML += `<div class='section-like__item'>
+    mayLikeDiv.innerHTML += `<div class='section-like__item' data-id='${itemId}'>
         <img src='${item.img}' class='item__img' alt='${item.name}'>
         <h4 class="item__title">${item.name}</h4>
         <span class="item__subtitle">${item.strength} ${item.subcategory}</span>
@@ -178,4 +181,56 @@ const insertItem = (item, itemId) => {
     </div>`;
 };
 
+const transferItem = (e) => {
+    const currItem = e.target.closest('.section-like__item');;
+    if (!currItem) return;
+
+    /*
+    const isQuantityButton = e.target.classList.contains('card__button-decrease') || e.target.classList.contains('card__button-increase') || e.target.classList.contains('card__button-replaced') || e.target.classList.contains('card__button');
+    if (isQuantityButton) return;
+    */
+    
+    let currItemId = currItem.dataset.id;
+
+    if (currItemId) {
+        window.location.href = `item-card.html?id=${currItemId}`;
+    }
+};
+
+const addItemToCart = (button) => {
+    const currItemId = button.target.dataset.itemId;
+};
+
+const addEventListenersToButtons = () => {
+    const buyItemButtons = document.querySelectorAll('.item__button');
+
+    [...buyItemButtons].forEach(button => button.addEventListener('click', addItemToCart));
+};
+
+const addEventListenersToCards = () => {
+    const cards = document.querySelectorAll('.section-like__item');
+    
+    [...cards].forEach(card => card.addEventListener('click', transferItem));
+};
+
+/*
+const itemCards = document.querySelectorAll('.card');
+
+const transferItem = (e) => {
+    const currItem = e.target.closest('.card');;
+    if (!currItem) return;
+
+    const isQuantityButton = e.target.classList.contains('card__button-decrease') || e.target.classList.contains('card__button-increase') || e.target.classList.contains('card__button-replaced') || e.target.classList.contains('card__button');
+    if (isQuantityButton) return;
+    
+    let currItemName = currItem.dataset.itemName;
+    let currItemId = currItem.dataset.id;
+
+    if (currItemName && currItemId) {
+        window.location.href = `item-card.html?id=${currItemId}`;
+    }
+};
+
+[...itemCards].forEach(card => card.addEventListener('click', transferItem));
+*/
 document.addEventListener('DOMContentLoaded', findItemsMayLike);

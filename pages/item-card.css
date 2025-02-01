@@ -161,6 +161,7 @@
     align-items: center;
     flex-direction: column;
     gap: 8px;
+    cursor: pointer;    
 }
 .item__img {
     width: var(--card-item-img-w);
@@ -187,6 +188,7 @@
 }
 .item__button:hover {
     background-color: var(--button-orange-bg-hover);
+    cursor: pointer;
 }
 
 .content__link {
