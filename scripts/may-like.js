@@ -1,5 +1,7 @@
 const itemsHashTable = {};
 const mayLikeDiv = document.querySelector('.section-like');
+const buyButtons = document.querySelectorAll('.item__button');
+const cards = document.querySelectorAll('.section-like__item');
 
 const itemsObject = {
     1: {
@@ -185,10 +187,8 @@ const transferItem = (e) => {
     const currItem = e.target.closest('.section-like__item');;
     if (!currItem) return;
 
-    /*
-    const isQuantityButton = e.target.classList.contains('card__button-decrease') || e.target.classList.contains('card__button-increase') || e.target.classList.contains('card__button-replaced') || e.target.classList.contains('card__button');
+    const isQuantityButton = e.target.classList.contains('item__button-decrease') || e.target.classList.contains('item__button-increase') || e.target.classList.contains('item__button-replaced') || e.target.classList.contains('item__button');
     if (isQuantityButton) return;
-    */
     
     let currItemId = currItem.dataset.id;
 
@@ -197,14 +197,10 @@ const transferItem = (e) => {
     }
 };
 
-const addItemToCart = (button) => {
-    const currItemId = button.target.dataset.itemId;
-};
-
 const addEventListenersToButtons = () => {
     const buyItemButtons = document.querySelectorAll('.item__button');
 
-    [...buyItemButtons].forEach(button => button.addEventListener('click', addItemToCart));
+    [...buyItemButtons].forEach(el => el.addEventListener('click', addToCart));
 };
 
 const addEventListenersToCards = () => {
@@ -213,24 +209,132 @@ const addEventListenersToCards = () => {
     [...cards].forEach(card => card.addEventListener('click', transferItem));
 };
 
-/*
-const itemCards = document.querySelectorAll('.card');
+const updateCartAm = () => {
+    const currCart = JSON.parse(localStorage.getItem('cart'));
+    const totalItemsAm = currCart?.items.reduce((sum, item) => sum + item.amount, 0) || 0;
+    const cartIcon = document.querySelector('.cart-link__number');
+    cartIcon.textContent = totalItemsAm;
+};
 
-const transferItem = (e) => {
-    const currItem = e.target.closest('.card');;
-    if (!currItem) return;
+const addToCart = (e) => {
+    const cards = document.querySelectorAll('.section-like__item');
+    const currElId = e.target.dataset.itemId;
+    const currButton = [...cards].find(card => +card.dataset.id === +currElId);
+    const currCart = localStorage.getItem('cart');
+    let cartObj;
 
-    const isQuantityButton = e.target.classList.contains('card__button-decrease') || e.target.classList.contains('card__button-increase') || e.target.classList.contains('card__button-replaced') || e.target.classList.contains('card__button');
-    if (isQuantityButton) return;
-    
-    let currItemName = currItem.dataset.itemName;
-    let currItemId = currItem.dataset.id;
+    e.target.classList.add('added-to-cart-item');
 
-    if (currItemName && currItemId) {
-        window.location.href = `item-card.html?id=${currItemId}`;
+    if (!currCart) {
+        cartObj = {
+            items: [{
+                id: currElId,
+                amount: 1
+            }]
+        };
+        e.target.style.display = 'none';
+        currButton.innerHTML += `<div class='item__button-replaced' data-id='${currElId}'>
+            <button class='item__button-decrease' data-id='${currElId}' style='display: none;'></button>
+            <p class='item__amount' data-id='${currElId}'>1</p>
+            <button class='item__button-increase' data-id='${currElId}'></button>
+        </div>`;
+    } 
+    else {
+        cartObj = JSON.parse(currCart);
+        const existingItem = cartObj.items.find(item => +item.id === +currElId);
+
+        if (existingItem) {
+            existingItem.amount++;
+            e.target.style.display = 'none';
+
+            currButton.innerHTML += `<div class='item__button-replaced' data-id='${currElId}'>
+            <button class='item__button-decrease' data-id='${currElId}' style='display: none;'></button>
+            <p class='item__amount' data-id='${currElId}'></p>
+            <button class='item__button-increase' data-id='${currElId}'></button>
+            </div>`;
+
+            updateItemDisplay(currButton, existingItem);
+        } 
+        else {
+            cartObj.items.push({
+                id: currElId,
+                amount: 1
+            });
+            e.target.style.display = 'none';
+            currButton.innerHTML += `<div class='item__button-replaced'>
+                <button class='item__button-decrease' data-id='${currElId}' style='display: none;'></button>
+                <p class='item__amount' data-id='${currElId}'>1</p>
+                <button class='item__button-increase' data-id='${currElId}'></button>
+            </div>`;
+        }
+    }
+    localStorage.setItem('cart', JSON.stringify(cartObj));
+    addEventListeners();
+    updateCartAm();
+};
+
+const itemDecr = (e) => {
+    const itemId = e.target.dataset.id;
+    const cartObj = JSON.parse(localStorage.getItem('cart'));
+    const item = cartObj.items.find(item => +item.id === +itemId);
+
+    item.amount > 1 ? item.amount-- : cartObj.items = cartObj.items.filter(item => +item.id !== +itemId);
+
+    localStorage.setItem('cart', JSON.stringify(cartObj));
+    updateItemDisplay(e.target.closest('.item__button-replaced'), item);
+    updateCartAm();
+};
+
+const itemIncr = (e) => {
+    const itemId = e.target.dataset.id;
+    const cartObj = JSON.parse(localStorage.getItem('cart'));
+    const item = cartObj.items.find(item => +item.id === +itemId);
+    item.amount++;
+    localStorage.setItem('cart', JSON.stringify(cartObj));
+    updateItemDisplay(e.target.closest('.item__button-replaced'), item);
+    updateCartAm();
+};
+
+const updateItemDisplay = (buttonContainer, item) => {
+    if (!buttonContainer) return;
+    const currCardAmount = buttonContainer.querySelector('.item__amount');
+    if (currCardAmount) {
+        currCardAmount.textContent = item.amount;
+    }
+    const buttonDecrease = buttonContainer.querySelector('.item__button-decrease');
+    if (buttonDecrease) {
+        buttonDecrease.style.display = item.amount > 1 ? 'inline' : 'none';
     }
 };
 
-[...itemCards].forEach(card => card.addEventListener('click', transferItem));
-*/
+const addEventListeners = () => {
+    const buttonDecrease = document.querySelectorAll('.item__button-decrease');
+    const buttonIncrease = document.querySelectorAll('.item__button-increase');
+    [...buttonDecrease].forEach(button => button.addEventListener('click', itemDecr));
+    [...buttonIncrease].forEach(button => button.addEventListener('click', itemIncr));
+};
+
+const loadItems = () => {
+    const cartObj = JSON.parse(localStorage.getItem('cart'));
+    if (cartObj) {
+        const buyButtons = document.querySelectorAll('.item__button');
+        buyButtons.forEach(button => {
+            const itemId = button.dataset.itemId;
+            const existingItem = cartObj.items.find(item => +item.id === +itemId);
+            if (existingItem) {
+                button.style.display = 'none';
+                const currButton = [...cards].find(card => card.dataset.id === itemId);
+                currButton.innerHTML += `<div class='item__button-replaced'>
+                    <button class='item__button-decrease' data-id='${itemId}'></button>
+                    <p class='item__amount' data-id='${itemId}'>${existingItem.amount}</p>
+                    <button class='item__button-increase' data-id='${itemId}'></button>
+                </div>`;
+                updateItemDisplay(currButton.querySelector('.item__button-replaced'), existingItem);
+            }
+        });
+        addEventListeners();
+    }
+};
+
+document.addEventListener('DOMContentLoaded', loadItems);
 document.addEventListener('DOMContentLoaded', findItemsMayLike);
