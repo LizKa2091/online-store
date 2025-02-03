@@ -117,6 +117,32 @@
     --item-decrease-h: 4.28px;
     --search-result-t: -20px;
     --inner-gap: 30px;
+    --item-card-content-wrapper-p: 9px 0;
+    --item-card-content-p: 64px 0;
+    --item-card-main-p-bottom: 57px;
+    --item-card-main-item-p: 0 95px;
+    --item-card-main-item-icon-w: 255px;
+    --item-card-main-item-icon-h: 675px;
+    --item-card-main-item-info-p: 0 84px;
+    --item-card-main-item-title-m-bottom: 25px;
+    --item-card-main-item-subtitle-m-top: 33px;
+    --item-card-main-item-price-m-top: 37px;
+    --item-card-main-item-action-amount-gap: 10px;
+    --item-card-item-buy-h: 44px;
+    --item-card-main-item-action-gap: 10px 20px;
+    --item-card-main-curr-item-icon-w: 36.56px;
+    --item-card-main-curr-item-icon-h: 14px;
+    --item-card-main-curr-item-icon-m-sides: 8.44px;
+    --item-card-section-item-content-p: 35px 0;
+    --item-card-section-item-content-black: #323232;
+    --item-card-section-p-top: 35px;
+    --item-card-section-like-item-gap: 8px;
+    --item-card-item-button-h: 37px;
+    --item-card-content-link-w: 44px;
+    --item-card-content-link-h: 5.5px;
+    --item-card-content-link-m-right: 15px;
+    --item-card-success-p-m-top: 10px;
+    --item-card-main-item-value-last-m-left: 17px;
 }
 
 * {
