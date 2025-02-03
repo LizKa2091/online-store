@@ -106,7 +106,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.aside__total__title {
+.aside__total__title, .aside__item-title, .aside__item-amount {
     font-weight: 500;
 }
 .aside__total__subtitle {
@@ -125,10 +125,7 @@
     font-size: 1.875rem;
     font-weight: 700;
 }
-.first-aside-col {
-    padding: var(--first-aside-col-p);
-}
-.second-aside-col {
+.first-aside-col, .second-aside-col {
     padding: var(--first-aside-col-p);
 }
 .aside__list {
@@ -148,9 +145,6 @@
 .aside__item-icon {
     width: var(--aside-item-w);
     height: var(--aside-item-h);
-}
-.aside__item-title, .aside__item-amount {
-    font-weight: 500;
 }
 .aside__item-capacity {
     font-weight: 300;
@@ -173,10 +167,10 @@
 .cart-link__number {
     color: #000;
     background-color: #fff;
-    border-radius: 50px;
-    width: 60%;
     text-align: center;
     text-decoration: none;
+    border-radius: 50px;
+    width: 60%;
     position: absolute;
     top: -30%;
     right: -30%;

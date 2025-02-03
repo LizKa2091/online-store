@@ -62,11 +62,9 @@
     color: #fff;
     font-weight: 300;
 }
-
 .filter-panel__subitem {
     margin-top: var(--filter-panel-subtitle-m-top);
 }
-
 .filter-panel__price {
     display: flex;
     justify-content: space-between;
@@ -142,9 +140,9 @@
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('/images/contact-bg.png') no-repeat center center;;
     background-size: cover;
+    border-radius: 5px;
     padding: var(--contact-panel-p);
     width: var(--filter-panel-w);
-    border-radius: 5px;
 }
 .container::before {
     content: '';
@@ -187,7 +185,7 @@
     color: #fff;
 }
 .contact-panel__extra-link {
-    color: #FDCF55;
+    color: var(--button-orange-bg);
 }
 .contact-panel__button {
     margin-top: var(--contact-panel-button-m-top);
@@ -199,7 +197,7 @@
     color: var(--button-orange-bg);
     font-size: 1.2rem;
     text-align: center;
-    margin-top: 10px;
+    margin-top: var(--item-card-success-p-m-top);
 }
 
 .main {
@@ -324,15 +322,15 @@
     background-color: rgb(199, 199, 199);
 }
 .cart-link__number {
-    position: absolute;
     color: #000;
-    top: -30%;
-    right: -30%;
     background-color: #fff;
     border-radius: 50px;
-    width: 60%;
     text-align: center;
     text-decoration: none;
+    position: absolute;
+    top: -30%;
+    right: -30%;
+    width: 60%;
 }
 .card__button-replaced {
     display: flex;
