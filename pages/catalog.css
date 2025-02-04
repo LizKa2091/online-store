@@ -420,14 +420,11 @@
 .filter-panel-mobile__button-left {
     border: 0;
     border-right: 2px solid var(--border-gray); 
-    background: url('/images/display-2-gray.png') no-repeat center center, #fff;
-    background-size: 18px 17px;
     width: 45.5px;
 }
 .filter-panel-mobile__button-right {
     border: 0;
     background: url('/images/display-1-yellow.png') no-repeat center center, #fff;
-    background-size: 13px 17px;
     width: 43.5px;
 }
 .filter-panel-mobile__close {
@@ -471,7 +468,7 @@
         max-width: 260px;
     }
     .card__title {
-        font-size: 1.125rem;
+        font-size: 1rem;
     }
     .card__subtitle {
         font-size: 1rem;
@@ -487,5 +484,21 @@
         left: 50%;
         transform: translateX(-50%);
         width: 290px;
+    }
+    .filter-panel-mobile__button-left.active {
+        background: url('/images/display-2-yellow.png') no-repeat center center, #fff;
+        background-size: 18px 17px;
+    }
+    .filter-panel-mobile__button-left.inactive {
+        background: url('/images/display-2-gray.png') no-repeat center center, #fff;
+        background-size: 18px 17px;
+    }
+    .filter-panel-mobile__button-right.active {
+        background: url('/images/display-1-yellow.png') no-repeat center center, #fff;
+        background-size: 13px 17px;
+    }
+    .filter-panel-mobile__button-right.inactive {
+        background: url('/images/display-1-gray.png') no-repeat center center, #fff;
+        background-size: 13px 17px;
     }
 }
