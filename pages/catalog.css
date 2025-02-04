@@ -404,7 +404,7 @@
     border: 1px solid var(--filter-panel-bg);
     border-radius: 5px;
     margin-bottom: 7px;
-    width: 90%;
+    width: 290px;
     height: 58px;
 }
 .filter-panel-mobile__section {
@@ -429,6 +429,13 @@
     background: url('/images/display-1-yellow.png') no-repeat center center, #fff;
     background-size: 13px 17px;
     width: 43.5px;
+}
+.filter-panel-mobile__close {
+    color: #fff;
+    font-weight: 300;
+    text-decoration: underline;
+    text-align: center;
+    margin-bottom: 14px;
 }
 .active {
     display: block;
@@ -479,5 +486,6 @@
         position: relative;
         left: 50%;
         transform: translateX(-50%);
+        width: 290px;
     }
 }
