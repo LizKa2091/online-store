@@ -10,117 +10,21 @@ const buyItemButton = document.querySelector('.item-buy');
 const contactPanelButton = document.querySelector('.contact-panel__button');
 
 const itemsObj = {
-    1: {
-        name: 'Irish Stout Irish Stout',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '68 ₽',
-        strength: '4.5 %',
-        img: '../images/item1.png'
-    },
-    2: {
-        name: 'Indian Stout',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '108 ₽',
-        strength: '4.5 %',
-        img: '../images/item2.png'
-    },
-    3: {
-        name: 'Italian Stout',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '208 ₽',
-        strength: '4.5 %',
-        img: '../images/item3.png'
-    },
+    1: { name: 'Irish Stout Irish Stout', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '68 ₽', strength: '4.5 %', img: '../images/item1.png' },
+    2: { name: 'Indian Stout', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '108 ₽', strength: '4.5 %', img: '../images/item2.png' },
+    3: { name: 'Italian Stout', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '208 ₽', strength: '4.5 %', img: '../images/item3.png' },
 
-    4: {
-        name: 'Irish Stout Irish Stout 2',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '508 ₽',
-        strength: '4.5 %',
-        img: '../images/item1.png'
-    },
-    5: {
-        name: 'Indian Stout 2',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '408 ₽',
-        strength: '4.5 %',
-        img: '../images/item2.png'
-    },
-    6: {
-        name: 'Irish Stout 2',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '108 ₽',
-        strength: '4.5 %',
-        img: '../images/item3.png'
-    },
+    4: { name: 'Irish Stout Irish Stout 2', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '508 ₽', strength: '4.5 %', img: '../images/item1.png' },
+    5: { name: 'Indian Stout 2', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '408 ₽', strength: '4.5 %', img: '../images/item2.png' },
+    6: { name: 'Irish Stout 2', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '108 ₽', strength: '4.5 %', img: '../images/item3.png' },
 
-    7: {
-        name: 'Irish Stout 3',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '608 ₽',
-        strength: '4.5 %',
-        img: '../images/item3.png'
-    },
-    8: {
-        name: 'Irish Stout 4',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '208 ₽',
-        strength: '4.5 %',
-        img: '../images/item3.png'
-    },
-    9: {
-        name: 'Irish Stout 5',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '208 ₽',
-        strength: '4.5 %',
-        img: '../images/item3.png'
-    },
+    7: { name: 'Irish Stout 3', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '608 ₽', strength: '4.5 %', img: '../images/item3.png' },
+    8: { name: 'Irish Stout 4', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '208 ₽', strength: '4.5 %', img: '../images/item3.png' },
+    9: { name: 'Irish Stout 5', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '208 ₽', strength: '4.5 %', img: '../images/item3.png' },
 
-    10: {
-        name: 'Irish Stout 6',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '208 ₽',
-        strength: '4.5 %',
-        img: '../images/item3.png'
-    },
-    11: {
-        name: 'Irish Stout 7',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '208 ₽',
-        strength: '4.5 %',
-        img: '../images/item3.png'
-    },
-    12: {
-        name: 'Irish Stout 8',
-        category: 'Пиво',
-        subcategory: 'Светлое',
-        capacity: '0.355 л',
-        price: '208 ₽',
-        strength: '4.5 %',
-        img: '../images/item3.png'
-    }
+    10: { name: 'Irish Stout 6', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '208 ₽', strength: '4.5 %', img: '../images/item3.png' },
+    11: { name: 'Irish Stout 7', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '208 ₽', strength: '4.5 %', img: '../images/item3.png' },
+    12: { name: 'Irish Stout 8', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '208 ₽', strength: '4.5 %', img: '../images/item3.png' }
 };
 
 if (itemId) {
@@ -245,7 +149,7 @@ const switchItemActionAmount = () => {
 
 const processForm = (e) => {
     e.preventDefault();
-    
+
     const contactInputs = document.querySelectorAll('.contact-panel__input');
     const areInputsFilled = [...contactInputs].every(input => input.value !== '');
 

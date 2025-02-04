@@ -138,6 +138,5 @@ searchInput.addEventListener('input', inputOnChange);
 searchInputButton.addEventListener('click', searchInputOnClick);
 pricePickButton.addEventListener('click', priceOnClick);
 
-//clear filters
 document.addEventListener('DOMContentLoaded', () => Object.keys(filtersObj).forEach(key => delete items[key]));
 contactPanelButton.addEventListener('click', contactPanelProccess);

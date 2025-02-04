@@ -6,6 +6,7 @@
 .content-wrapper {
     display: flex;
     padding: var(--content-wrapper-p);
+    position: relative;
 }
 .fitler-panel {
     background-color: var(--filter-panel-bg);
@@ -202,7 +203,7 @@
 
 .main {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     row-gap: var(--main-row-gap);
     padding-left: var(--main-p-left);
@@ -215,6 +216,8 @@
     align-items: center;
     gap: var(--card-gap);
     position: relative;
+    max-width: 214px;
+    width: 100dvw;
 }
 .card__img {
     width: var(--card-item-img-w);
@@ -223,6 +226,7 @@
 .card__title {
     font-size: 1.375rem;
     font-weight: 400;
+    text-align: center;
 }
 .card__subtitle {
     font-size: 1.125rem;
@@ -377,4 +381,80 @@
 }
 .filter-panel__button:hover, .contact-panel__button:hover, .card__button:hover {
     background-color: var(--button-orange-bg-hover);
+}
+.filter-panel-mobile {
+    display: none;
+    justify-content: center;
+}
+.filter-panel-mobile__button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--filter-panel-bg);
+    border: 1px solid var(--filter-panel-bg);
+    border-radius: 5px;
+    margin-bottom: 7px;
+    width: 90%;
+    height: 58px;
+}
+/*
+.filter-panel-mobile__button::before {
+    content: '';
+    background: url('/images/wheat-yellow.png') no-repeat center center;
+    background-size: cover;
+    width: var(--filter-panel-wheat-w);
+    height: var(--filter-panel-wheat-h);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+        transform: rotateY(180deg) translateY(-50%);
+}
+        */
+.filter-panel-mobile__button::after {
+
+}
+
+@media (max-width: 1440px) {
+    .sale__title {
+        font-size: 1.8rem;
+    }
+    .sale__subtitle {
+        font-size: 1.5rem;
+    }
+}   
+@media (max-width: 768px) {
+    .footer__list {
+        gap: 25px;
+    }
+}
+@media (max-width: 450px) {
+    .main {
+        padding: 0 15px;
+    }
+    .sale__title {
+        font-size: 1.7rem;
+    }
+    .sale__subtitle {
+        text-align: center;
+    }
+    .card {
+        max-width: 260px;
+    }
+    .card__title {
+        font-size: 1.125rem;
+    }
+    .card__subtitle {
+        font-size: 1rem;
+    }
+    .card__sale {
+        top: 23px;
+    }
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .filter-panel-mobile {
+        display: flex;
+    }
 }

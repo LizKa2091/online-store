@@ -156,7 +156,7 @@ body {
     overflow-x: hidden;
 }
 .wrapper, .footer__wrapper {
-    width: clamp(320px, 58.3dvw, 1120px);
+    width: clamp(320px, 85dvw, 1120px);
     margin: 0 auto;
 }
 .background {
@@ -173,6 +173,7 @@ body {
     flex-direction: column;
     padding: var(--header-p);
     gap: var(--header-gap);
+    position: relative;
 }
 .header__inner {
     display: flex;
@@ -436,6 +437,20 @@ body {
     color: #fff;
 }
 
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: 15px;
+}
+.nav-mobile__button {
+    border: 0;
+    background: url('/images/mobile-nav.png') no-repeat center center;
+    background-size: cover;
+    width: 24px;
+    height: 15px;
+}
+
 .footer__contacts-map::before {
     content: '';
     background: url('/images/location.png') no-repeat center center;
@@ -479,4 +494,76 @@ body {
 }
 button {
     font-family: 'Fira Sans', sans-serif;
+}
+.background {
+    height: var(--header-bg-height);
+}
+
+@media (max-width: 768px) {
+    :root {
+        --header-title-m-top: 50px;
+        --header-bg-height: 361px;
+    }
+}
+@media (max-width: 450px) {
+    :root {
+        --header-bg-height: 204px;
+        --logo-w: 46px;
+        --logo-h: 55px;
+        --header-title-m-top: 0;
+        --header-gap: 86px;
+        --header-p: 14px 0 5px 0;
+        --card-item-img-w: 136px;
+        --card-item-img-h: 363px;
+        --sale-h: 189px;
+        --main-row-gap: 25px;
+        --footer-m-top: 25px;
+        --footer-logo-img-w: 49px;
+        --footer-logo-img-h: 58px;
+        --footer-wrapper-p-top: 21px;
+        --footer-logo-m-bottom: 16px;
+        --footer-social-list-m-top: 16px;
+        --footer-contacts-gap: 16px;
+        --footer-list-gap: 27px;
+        --footer-h: 100%;
+        --footer-list-p: 0 0 34.5px 0;
+    }
+    .wrapper {
+        width: 100dvw;
+        max-width: 320px;
+    }
+    .footer__list {
+        flex-direction: column; 
+    }
+    .header__social-list, .header__action-list, .nav {
+        display: none;
+    }
+    .header__logo {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .header__logo-title {
+        font-size: 0.7rem;
+    }
+    .header__title {
+        font-size: 1.5625rem;
+    }
+    .nav-mobile {
+        display: block;
+    }
+    .contact-panel, .fitler-panel {
+        display: none;
+    }
+    .footer__logo-title {
+        font-size: 1.5rem;
+    }
+    .footer__wrapper {
+        width: 290px;
+    }
+    .footer__rights {
+        flex-direction: column;
+        gap: 12px;
+        padding-bottom: 19px;
+    }
 }
