@@ -1,7 +1,9 @@
 .aside {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: var(--aside-gap);
+    position: relative;
 }
 .content-wrapper {
     display: flex;
@@ -383,7 +385,6 @@
     background-color: var(--button-orange-bg-hover);
 }
 .filter-panel-mobile {
-    display: none;
     justify-content: center;
     flex-direction: column;
     margin-bottom: 25px;
@@ -429,6 +430,12 @@
     background-size: 13px 17px;
     width: 43.5px;
 }
+.active {
+    display: block;
+}
+.hidden {
+    display: none;
+}
 
 @media (max-width: 1440px) {
     .sale__title {
@@ -468,7 +475,9 @@
     .content-wrapper {
         flex-direction: column;
     }
-    .filter-panel-mobile {
-        display: flex;
+    .fitler-panel {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
