@@ -555,6 +555,10 @@ button {
     .contact-panel {
         display: none;
     }
+    .footer {
+        background-image: url('/images/footer-bg1.png');
+        background-size: auto;
+    }
     .footer__logo-title {
         font-size: 1.5rem;
     }
