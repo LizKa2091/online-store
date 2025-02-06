@@ -619,4 +619,7 @@ button {
         position: absolute;
         bottom: 5%;
     }
+    .header-mobile__action-item {
+        position: relative;
+    }
 }

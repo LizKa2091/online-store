@@ -37,12 +37,13 @@ const setupMobileNavigation = () => {
 
             body.style.overflowY = 'auto';
             mobileNavInnerDiv.classList.remove('active-mobile-nav');
-            mobileNavInnerDiv.innerHTML = '';
+            mobileNavInnerDiv.classList.add('hidden');
         }
     };
 
     const showMobileNav = (mobileNavInnerDiv) => {
         mobileNavInnerDiv.classList.add('active-mobile-nav');
+        mobileNavInnerDiv.classList.remove('hidden');
 
         mobileNavInnerDiv.innerHTML = `
             <ul class="header-mobile__action-list">
@@ -51,7 +52,7 @@ const setupMobileNavigation = () => {
                 </li>
                 <li class="header-mobile__action-item">
                     <a class='cart-link' href="./cart.html"></a>
-                    <a class="cart-link__number" href="./cart.html"></a>
+                    <a class="cart-link__number cart-mobile-link__number" href="./cart.html"></a>
                 </li>
             </ul>
             <ul class="footer__links">
@@ -89,6 +90,13 @@ const setupMobileNavigation = () => {
                 </li>
             </ul>
         `;
+
+        const currCart = JSON.parse(localStorage.getItem('cart'));
+
+        const totalItemsAmount = currCart?.items.reduce((sum, item) => sum + item.amount, 0);
+        const cartIcon = document.querySelector('.cart-mobile-link__number');
+
+        cartIcon.textContent = totalItemsAmount;
     };
 
     mobileNavButton.addEventListener('click', switchMobileNav);
