@@ -206,6 +206,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
+    z-index: 2;
 }
 .header__logo-image {
     width: var(--logo-w);
@@ -445,10 +446,6 @@ body {
 }
 .nav-mobile__button {
     border: 0;
-    background: url('/images/mobile-nav.png') no-repeat center center;
-    background-size: cover;
-    width: 24px;
-    height: 15px;
 }
 
 .footer__contacts-map::before {
@@ -500,6 +497,7 @@ button {
 }
 .nav-mobile__button {
     display: none;
+    z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -575,5 +573,17 @@ button {
     }
     .nav-mobile__button {
         display: block;
+    }
+    .nav-on {
+        background: url('/images/mobile-nav-close.png') no-repeat center center;
+        background-size: cover;
+        width: 19.18px;
+        height: 19.21px;
+    }
+    .nav-off {
+        background: url('/images/mobile-nav.png') no-repeat center center;
+        background-size: cover;
+        width: 24px;
+        height: 15px;
     }
 }

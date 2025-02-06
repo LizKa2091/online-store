@@ -43,7 +43,7 @@ closeFiltersButton.addEventListener('click', toggleFilterDiv);
 displayOneItemButton.addEventListener('click', displayOneItem);
 displayTwoItemsButton.addEventListener('click', displayTwoItems);
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth <= 450) {
+    if (window.matchMedia("(max-width: 450px)")) {
         filterButton.classList.add('active');
         filterMobileDiv.classList.add('active');
         filterPanel.classList.add('hidden');
