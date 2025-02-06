@@ -498,6 +498,9 @@ button {
 .background {
     height: var(--header-bg-height);
 }
+.nav-mobile__button {
+    display: none;
+}
 
 @media (max-width: 768px) {
     :root {
@@ -569,5 +572,8 @@ button {
         flex-direction: column;
         gap: 12px;
         padding-bottom: 19px;
+    }
+    .nav-mobile__button {
+        display: block;
     }
 }
