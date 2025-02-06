@@ -37,13 +37,58 @@ const setupMobileNavigation = () => {
 
             body.style.overflowY = 'auto';
             mobileNavInnerDiv.classList.remove('active-mobile-nav');
-            //mobileNavInnerDiv.classList.add('hidden');
+            mobileNavInnerDiv.innerHTML = '';
         }
     };
 
     const showMobileNav = (mobileNavInnerDiv) => {
         mobileNavInnerDiv.classList.add('active-mobile-nav');
 
+        mobileNavInnerDiv.innerHTML = `
+            <ul class="header-mobile__action-list">
+                <li class="header-mobile__action-item">
+                    <a class='search-link' href="#"></a>
+                </li>
+                <li class="header-mobile__action-item">
+                    <a class='cart-link' href="./cart.html"></a>
+                    <a class="cart-link__number" href="./cart.html"></a>
+                </li>
+            </ul>
+            <ul class="footer__links">
+                <li class="footer__links-item">
+                    <a href="./catalog.html" class="footer__links-item-link">Каталог</a>
+                </li>
+                <li class="footer__links-item">
+                    <a href="#" class="footer__links-item-link">Дистрибуция</a>
+                </li>
+                <li class="footer__links-item">
+                    <a href="#" class="footer__links-item-link">Комплектация магазинов</a>
+                </li>
+                <li class="footer__links-item">
+                    <a href="#" class="footer__links-item-link">О компании</a>
+                </li>
+                <li class="footer__links-item">
+                    <a href="#" class="footer__links-item-link">Контакты</a>
+                </li>
+            </ul>
+            <ul class="footer__social-list mobile-nav__social-list">
+                <li class="footer__social-item">
+                    <a href="https://www.instagram.com/wunder.beer/">
+                        <div class="footer__social-images">
+                            <img class='footer__social-image' src="/images/inst1.png" alt="instagram">
+                            <img class='footer__social-image' src="/images/inst2.png" alt="instagram">
+                            <img class='footer__social-image' src="/images/inst3.png" alt="instagram">
+                        </div>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a class='vk-link' href="https://vk.com/wunderbeer"></a>
+                </li>
+                <li class="footer__social-item">
+                    <a class='facebook-link' href="#"></a>
+                </li>
+            </ul>
+        `;
     };
 
     mobileNavButton.addEventListener('click', switchMobileNav);

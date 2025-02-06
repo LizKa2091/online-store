@@ -442,8 +442,8 @@ body {
 .nav-mobile__button {
     border: 0;
     position: absolute;
-    top: -130px;
-    right: 0;
+    top: 27.5px;
+    right: -290px;
 }
 
 .footer__contacts-map::before {
@@ -533,6 +533,9 @@ button {
     .footer__list {
         flex-direction: column; 
     }
+    .header {
+        height: 204px;
+    }
     .header__social-list, .header__action-list, .nav {
         display: none;
     }
@@ -549,6 +552,7 @@ button {
     }
     .nav-mobile {
         display: block;
+        position: absolute;
     }
     .contact-panel {
         display: none;
@@ -567,6 +571,9 @@ button {
         flex-direction: column;
         gap: 12px;
         padding-bottom: 19px;
+    }
+    .nav-mobile__content {
+        transition: 0.5s all linear;
     }
     .nav-mobile__button {
         display: block;
@@ -589,7 +596,10 @@ button {
     }
     .active-mobile-nav {
         display: flex;
+        flex-direction: column;
         background-color: #000;
+        gap: 28px;
+        padding: 106px 18px 0 18px;
         width: 100dvw;
         height: 100dvh;
         position: fixed;
@@ -597,8 +607,16 @@ button {
         left: 0;
         z-index: 1;
     }
-    .header__title {
-        position: relative;
-        top: -90px;
+    .header-mobile__action-list {
+        display: flex;
+        gap: 26px;
+    }
+    .header-mobile__action-item {
+        display: inline-block;
+    }
+    .mobile-nav__social-list {
+        margin: 0;
+        position: absolute;
+        bottom: 5%;
     }
 }
