@@ -494,6 +494,18 @@ button {
     right: -290px;
 }
 
+@media (max-width: 1024px) {
+    :root {
+        --aside-list-padding: 14px;
+        --aside-item-gap: 15px;
+        --main-p: 0;
+    }
+    .aside__item {
+        display: flex;
+        align-items: center;
+    }   
+}
+
 @media (max-width: 768px) {
     :root {
         --header-title-m-top: 50px;
@@ -527,7 +539,6 @@ button {
         --footer-h: 100%;
         --footer-list-p: 0 0 34.5px 0;
         --filled-cart-item-cell-first-p: 27.5px 0;
-        
     }
     .wrapper {
         width: 100dvw;

@@ -38,6 +38,7 @@ const getCartItems = () => {
     asideSummaryPrice.textContent = `${totalPrice} ₽`;
     asideSummaryAmount.textContent = totalItemsAmount;
 
+    applyModificationsForTablet();
 };
 
 const insertItem = (item, itemId, cart) => {
@@ -53,6 +54,15 @@ const insertItem = (item, itemId, cart) => {
             <p class='aside__item-amount'>${currItemAmount} шт.</p>
         </div>
     </li>`;
+};
+
+const applyModificationsForTablet = () => {
+    if (window.matchMedia("(max-width: 1000px)").matches) {
+        const asideTablet = document.querySelector('.main__form__aside-tablet');
+        const standardAside = document.querySelector('.aside');
+
+        asideTablet.append(standardAside);
+    }
 };
 
 document.addEventListener('DOMContentLoaded', getCartItems);

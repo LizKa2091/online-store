@@ -7,6 +7,7 @@
 .main__header {
     font-size: 1.875rem;
     font-weight: 400;
+    margin-bottom: 34px;
 }
 .main__form {
     display: flex;
@@ -199,4 +200,33 @@
 }
 .main__form__button:hover {
     background-color: var(--button-orange-bg-hover);
+}
+
+
+@media (max-width: 1000px) {
+    .inner {
+        flex-direction: column;
+    }
+    .main__form__aside-tablet {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+    #main__form__checkbox {
+        flex-wrap: nowrap;
+    }
+    .main__form__column, .main__form__fieldset {
+        flex-wrap: wrap;    
+    }
+    .main__header {
+        margin: 31px 0 25px 0;
+    }
+    .main__form__label {
+        margin-bottom: 5px;
+    }
+    .main__form__radio-group, .main__form__radio-label {
+        width: 100%;
+    }
 }
