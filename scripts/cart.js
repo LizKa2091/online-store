@@ -52,6 +52,7 @@ const getCartItems = (cart) => {
             insertItem(itemsObj[item.id], item.id, cart);
         }
     });
+    applyModificationsForMobile();
 };
 
 const insertItem = (itemObj, itemId, currCart) => {
@@ -62,7 +63,7 @@ const insertItem = (itemObj, itemId, currCart) => {
         <td class='filled-cart__item-cell'>
             <img class='filled-cart__item-icon' src='${itemObj.img}'>
         </td>
-        <td class='filled-cart__item-cell'>
+        <td class='filled-cart__item-cell item-info'>
             <p class='filled-cart__item-name'>${itemObj.name}</p>
             <p class='filled-cart__item-category'>${itemObj.category}</p>
             <p class='filled-cart__item-subcategory'>${itemObj.subcategory}</p>
@@ -74,13 +75,13 @@ const insertItem = (itemObj, itemId, currCart) => {
                 <button class='filled-cart__action-button item-increase' data-id='${itemId}'></button>
             </div>
         </td>
-        <td class='filled-cart__item-cell'>
+        <td class='filled-cart__item-cell item-total-price' id='item-price'>
             <p class='filled-cart__item-total'>${+itemObj.price.slice(0, itemObj.price.length-2) * +currItemAmount} ₽</p>
         </td>
-        <td class='filled-cart__item-cell'>
+        <td class='filled-cart__item-cell item-calculations' id='item-calculations'>
             <p class='filled-cart__item-price'>${itemObj.price} * ${currItemAmount}</p>
         </td>
-        <td class='filled-cart__item-cell'>
+        <td class='filled-cart__item-cell item-del'>
             <button class='filled-cart__button-delete' data-id='${itemId}'></button>
         </td>
         </tr>`;
@@ -90,7 +91,7 @@ const insertItem = (itemObj, itemId, currCart) => {
         <td class='filled-cart__item-cell'>
             <img class='filled-cart__item-icon' src='${itemObj.img}'>
         </td>
-        <td class='filled-cart__item-cell'>
+        <td class='filled-cart__item-cell item-info '>
             <p class='filled-cart__item-name'>${itemObj.name}</p>
             <p class='filled-cart__item-category'>${itemObj.category}</p>
             <p class='filled-cart__item-subcategory'>${itemObj.subcategory}</p>
@@ -103,13 +104,13 @@ const insertItem = (itemObj, itemId, currCart) => {
                 <button class='filled-cart__action-button item-increase' data-id='${itemId}'></button>
             </div>
         </td>
-        <td class='filled-cart__item-cell'>
+        <td class='filled-cart__item-cell item-total-price' id='item-price'>
             <p class='filled-cart__item-total'>${+itemObj.price.slice(0, itemObj.price.length-2) * +currItemAmount} ₽</p>
         </td>
-        <td class='filled-cart__item-cell'>
+        <td class='filled-cart__item-cell item-calculations' id='item-calculations'>
             <p class='filled-cart__item-price'>${itemObj.price} * ${currItemAmount}</p>
         </td>
-        <td class='filled-cart__item-cell'>
+        <td class='filled-cart__item-cell item-del'>
             <button class='filled-cart__button-delete' data-id='${itemId}'></button>
         </td>
         </tr>`;
@@ -196,6 +197,20 @@ const addEventListeners = () => {
     [...increaseButtons].forEach(button => button.addEventListener('click', increaseItem));
     [...decreaseButtons].forEach(button => button.addEventListener('click', decreaseItem));
     [...deleteButtons].forEach(button => button.addEventListener('click', deleteItem));
+};
+
+const applyModificationsForMobile = () => {
+    if (window.matchMedia("(max-width: 450px)").matches) {
+        const cardsWordsDiv = document.querySelectorAll('.item-info');
+        const cardsActionsDiv = document.querySelectorAll('.filled-cart__item-cell__item-actions');
+        const cardsTotalPriceDiv = document.querySelectorAll('.item-total-price');
+        const cardsCalculationsDiv = document.querySelectorAll('.item-calculations');
+
+        cardsWordsDiv.forEach((cardWordsDiv, i) => cardWordsDiv.append(cardsActionsDiv[i], cardsTotalPriceDiv[i], cardsCalculationsDiv[i++]));
+        
+        const allTds = document.querySelectorAll('.filled-cart__item-cell');
+        allTds.forEach(td => td.innerHTML.trim(' ').length ? td : td.classList.add('hidden'));
+    }
 };
 
 goCatalogButton.addEventListener('click', ()=>location.href='./catalog.html');

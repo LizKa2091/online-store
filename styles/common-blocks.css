@@ -502,8 +502,11 @@ button {
         --header-title-m-top: 50px;
         --header-bg-height: 361px;
     }
+    .footer__list {
+        gap: 25px;
+    }
 }
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     :root {
         --header-bg-height: 204px;
         --logo-w: 46px;
@@ -515,6 +518,7 @@ button {
         --card-item-img-h: 363px;
         --sale-h: 189px;
         --main-row-gap: 25px;
+        --main-p-top: 10px;
         --footer-m-top: 25px;
         --footer-logo-img-w: 49px;
         --footer-logo-img-h: 58px;
@@ -525,6 +529,8 @@ button {
         --footer-list-gap: 27px;
         --footer-h: 100%;
         --footer-list-p: 0 0 34.5px 0;
+        --filled-cart-item-cell-first-p: 27.5px 0;
+        
     }
     .wrapper {
         width: 100dvw;

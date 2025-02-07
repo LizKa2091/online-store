@@ -10,7 +10,7 @@
     padding: var(--content-wrapper-p);
     position: relative;
 }
-.fitler-panel {
+.filter-panel {
     background-color: var(--filter-panel-bg);
     border-radius: 5px;
     width: var(--filter-panel-w);
@@ -449,12 +449,7 @@
         font-size: 1.5rem;
     }
 }   
-@media (max-width: 768px) {
-    .footer__list {
-        gap: 25px;
-    }
-}
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     .main {
         padding: 0 15px;
     }
@@ -479,7 +474,7 @@
     .content-wrapper {
         flex-direction: column;
     }
-    .fitler-panel {
+    .filter-panel {
         position: relative;
         left: 50%;
         transform: translateX(-50%);

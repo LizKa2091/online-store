@@ -80,8 +80,9 @@ const searchInputOnClick = async (e) => {
 
         searchResultSpan.textContent = `Найдено результатов поиска: ${itemsLen}`;
         searchResultSpan.style.display = 'inline';
-    }
 
+        closeMobileFilter();
+    }
 };
 
 const priceOnClick = async () => {
@@ -95,6 +96,8 @@ const priceOnClick = async () => {
 
         searchResultSpan.textContent = `Найдено результатов поиска: ${itemsLen}`;
         searchResultSpan.style.display = 'inline';
+        
+        closeMobileFilter();
     }
 };
 
@@ -132,6 +135,19 @@ const contactPanelProccess = (e) => {
         });
     }
 }
+
+const closeMobileFilter = () => {
+    const filterDiv = document.querySelector('.filter-panel');
+
+    if (filterDiv.classList.contains('active')) {
+        filterDiv.classList.remove('active');
+        filterDiv.classList.add('hidden');
+
+        openFilterMobileButton = document.querySelector('.filter-panel-mobile__section-main-button');
+        openFilterMobileButton.classList.remove('hidden');
+        openFilterMobileButton.classList.add('active');
+    }
+};
 
 searchInput.addEventListener('input', inputOnChange);
 [...filterTitles].forEach(filterTitle => filterTitle.addEventListener('click', categoryOnClick));

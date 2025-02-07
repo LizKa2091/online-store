@@ -1,6 +1,6 @@
 const filterButton = document.querySelector('.filter-panel-mobile__section-main-button');
 const filterMobileDiv = document.querySelector('.filter-panel-mobile');
-const filterPanel = document.querySelector('.fitler-panel')
+const filterPanel = document.querySelector('.filter-panel')
 const displayTwoItemsButton = document.querySelector('.filter-panel-mobile__button-left');
 const displayOneItemButton = document.querySelector('.filter-panel-mobile__button-right');
 const closeFiltersButton = document.querySelector('.filter-panel-mobile__close');
