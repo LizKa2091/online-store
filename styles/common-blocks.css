@@ -200,7 +200,7 @@ body {
     flex-direction: column;
     font-family: 'Roboto Slab', sans-serif;
     align-items: center;
-    z-index: 2;
+    z-index: 3;
 }
 .header__logo__link {
     display: flex;  
@@ -439,13 +439,6 @@ body {
     color: #fff;
 }
 
-.nav-mobile__button {
-    border: 0;
-    position: absolute;
-    top: 27.5px;
-    right: -290px;
-}
-
 .footer__contacts-map::before {
     content: '';
     background: url('/images/location.png') no-repeat center center;
@@ -495,6 +488,10 @@ button {
 }
 .nav-mobile__button {
     display: none;
+    border: 0;
+    position: absolute;
+    top: 27.5px;
+    right: -290px;
 }
 
 @media (max-width: 768px) {
@@ -579,10 +576,12 @@ button {
         padding-bottom: 19px;
     }
     .nav-mobile__content {
-        transition: 0.5s all linear;
+        height: 100dvh;
+        transition: all .3s ease-in;
     }
     .nav-mobile__button {
         display: block;
+        transition: all .3s ease-in;
     }
     .nav-on {
         background: url('/images/mobile-nav-close.png') no-repeat center center;
@@ -598,7 +597,7 @@ button {
     }
     .nav-mobile__before {
         position: relative;
-        z-index: 2;
+        z-index: 3;
     }
     .active-mobile-nav {
         display: flex;
@@ -611,7 +610,7 @@ button {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 1;
+        z-index: 2;
     }
     .header-mobile__action-list {
         display: flex;
@@ -627,5 +626,9 @@ button {
     }
     .header-mobile__action-item {
         position: relative;
+    }
+
+    .nav-mobile__button:hover {
+        transform: scale(1.1);
     }
 }
