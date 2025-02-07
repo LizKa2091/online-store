@@ -34,7 +34,7 @@ const displayTwoItems = (e) => {
     displayOneItemButton.classList.remove('active');
     displayOneItemButton.classList.add('inactive');
 
-    [...cardSections].forEach(card => card.style.width = '155px');
+    [...cardSections].forEach(card => card.style.width = '133px');
     mainSection.style.padding = '0';
 };
 
