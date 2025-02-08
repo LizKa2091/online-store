@@ -205,6 +205,9 @@
 }
 
 @media (min-width: 1024px) {
+    .inner {
+        flex: 1;
+    }
     .aside {
         height: fit-content;
     }
