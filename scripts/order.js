@@ -57,7 +57,7 @@ const insertItem = (item, itemId, cart) => {
 };
 
 const applyModificationsForTablet = () => {
-    if (window.matchMedia("(max-width: 1000px)").matches) {
+    if (window.matchMedia("(max-width: 1024px)").matches) {
         const asideTablet = document.querySelector('.main__form__aside-tablet');
         const standardAside = document.querySelector('.aside');
 

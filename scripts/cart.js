@@ -31,13 +31,13 @@ const isCartFilled = () => {
         emptyCartDiv.classList.remove('hidden');
         filledCartDiv.classList.add('hidden');
 
-        mainBlock.style.height = 'clamp(230px, 100dvh, 620px)';
+        //mainBlock.style.height = 'clamp(230px, 100dvh, 620px)';
     }
     else {
         emptyCartDiv.classList.add('hidden');
         filledCartDiv.classList.remove('hidden');
 
-        mainBlock.style.minHeight = 'clamp(230px, 100dvh, 620px)';
+        //mainBlock.style.minHeight = 'clamp(230px, 100dvh, 620px)';
 
         tableBody.innerHTML = '';
 
@@ -200,7 +200,7 @@ const addEventListeners = () => {
 };
 
 const applyModificationsForMobile = () => {
-    if (window.matchMedia("(max-width: 450px)").matches) {
+    if (window.matchMedia("(max-width: 500px)").matches) {
         const cardsWordsDiv = document.querySelectorAll('.item-info');
         const cardsActionsDiv = document.querySelectorAll('.filled-cart__item-cell__item-actions');
         const cardsTotalPriceDiv = document.querySelectorAll('.item-total-price');

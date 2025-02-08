@@ -1,5 +1,5 @@
 const checkDeviceWidth = () => {
-    if (window.matchMedia("(max-width: 450px)").matches) {
+    if (window.matchMedia("(max-width: 500px)").matches) {
         setupMobileNavigation();
     }
     else {

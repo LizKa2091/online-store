@@ -2,6 +2,8 @@
     display: flex;
     padding: var(--main-p);
     gap: var(--inner-gap);
+    min-height: 850px;
+    height: calc(100dvh - var(--header-bg-height) - var(--footer-h));
 }
 
 .main__header {
@@ -12,7 +14,7 @@
 .main__form {
     display: flex;
     flex-direction: column;
-    padding: var(--main-p);
+    padding-top: 55px;
     gap: var(--main-gap);
 }
 .main__form__required {
@@ -202,10 +204,17 @@
     background-color: var(--button-orange-bg-hover);
 }
 
+@media (min-width: 1024px) {
+    .aside {
+        height: fit-content;
+    }
+}
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     .inner {
+        justify-content: center;
         flex-direction: column;
+        height: auto;
     }
     .main__form__aside-tablet {
         display: flex;

@@ -137,9 +137,10 @@ const contactPanelProccess = (e) => {
 }
 
 const closeMobileFilter = () => {
+    console.log('called closemobilefilter')
     const filterDiv = document.querySelector('.filter-panel');
 
-    if (filterDiv.classList.contains('active')) {
+    if (filterDiv.classList.contains('active') && window.matchMedia("(max-width: 500px)").matches) {
         filterDiv.classList.remove('active');
         filterDiv.classList.add('hidden');
 

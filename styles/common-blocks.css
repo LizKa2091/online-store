@@ -10,7 +10,7 @@
     --main-p-top: 55px;
     --main-row-gap: 50px;
     --main-p-left: 50px;
-    --main-p: 34px 0;
+    --main-p: 55px;
     --main-gap: 25px;
     --main-form-input-p: 0 25px;
     --main-form-input-w: 540px;
@@ -155,7 +155,12 @@
 body {
     font-family: 'Fira Sans', sans-serif;
     width: 100dvw;
+    min-height: 100dvh;
     overflow-x: hidden;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
 }
 .wrapper, .footer__wrapper {
     width: clamp(320px, 100dvw, 1120px);
@@ -179,7 +184,8 @@ body {
 }
 .header__inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    position: relative;
 }
 .header__social-list, .header__action-list, .footer__social-list {
     display: flex;
@@ -357,9 +363,9 @@ body {
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-size: calc(100dvw / 3) 200px;
     background-position: bottom left, bottom right, bottom;
-    margin-top: var(--footer-m-top);
     width: 100%;
     height: var(--footer-h);
+    position: relative;
 }
 .footer__wrapper {
     padding-top: var(--footer-wrapper-p-top);
@@ -434,7 +440,7 @@ body {
 
 .footer__rights {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 0.875rem;
     font-weight: 300;
     color: #fff;
@@ -499,7 +505,6 @@ button {
     :root {
         --aside-list-padding: 14px;
         --aside-item-gap: 15px;
-        --main-p: 0;
     }
     .aside__item {
         display: flex;
@@ -521,14 +526,13 @@ button {
         --header-bg-height: 204px;
         --logo-w: 46px;
         --logo-h: 55px;
-        --header-title-m-top: 0;
         --header-gap: 86px;
         --header-p: 14px 0 5px 0;
         --card-item-img-w: 136px;
         --card-item-img-h: 363px;
         --sale-h: 189px;
         --main-row-gap: 25px;
-        --main-p-top: 10px;
+        --main-p: 55px 0 106px 0;
         --footer-m-top: 25px;
         --footer-logo-img-w: 49px;
         --footer-logo-img-h: 58px;
@@ -555,7 +559,7 @@ button {
         display: none;
     }
     .header__logo {
-        position: relative;
+        position: absolute;
         left: 50%;
         transform: translateX(-50%);
     }
