@@ -31,13 +31,13 @@ const isCartFilled = () => {
         emptyCartDiv.classList.remove('hidden');
         filledCartDiv.classList.add('hidden');
 
-        mainBlock.style.height = 'clamp(250px, 100dvh, 620px)';
+        mainBlock.style.height = 'clamp(230px, 100dvh, 620px)';
     }
     else {
         emptyCartDiv.classList.add('hidden');
         filledCartDiv.classList.remove('hidden');
 
-        mainBlock.style.minHeight = 'clamp(250px, 100dvh, 620px)';
+        mainBlock.style.minHeight = 'clamp(230px, 100dvh, 620px)';
 
         tableBody.innerHTML = '';
 

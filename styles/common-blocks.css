@@ -94,8 +94,9 @@
     --footer-list-p: 10px 0 60px 0;
     --footer-contacts-item-gap: 14px;
     --empty-cart-title-m-bottom: 35px;
-    --empty-cart-subtitle-m-bottom: 48px;
+    --empty-cart-subtitle-m-bottom: 10px;
     --cart-button-h: 44px;
+    --cart-button-m-top: 38px;
     --cart-header-white: #E9E9E9;
     --filled-cart-total-gap: 35px;
     --filled-cart-gap: 20px;
@@ -539,6 +540,7 @@ button {
         --footer-h: 100%;
         --footer-list-p: 0 0 34.5px 0;
         --filled-cart-item-cell-first-p: 27.5px 0;
+        --cart-button-m-top: 24px;
     }
     .wrapper {
         width: 100dvw;
