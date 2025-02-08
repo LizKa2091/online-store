@@ -10,9 +10,11 @@ const checkDeviceWidth = () => {
 const resetMobileNavigation = () => {
     const mobileNavButton = document.querySelector('.nav-mobile__button');
     const mobileNavInnerDiv = document.querySelector('.nav-mobile__content');
+    const mobileNavEl = document.querySelector('.nav-mobile');
 
     mobileNavInnerDiv.innerHTML = '';
 
+    mobileNavEl.classList.add('hidden');
     mobileNavButton.classList.remove('nav-on');
     mobileNavButton.classList.add('nav-off');
 };
@@ -20,8 +22,11 @@ const resetMobileNavigation = () => {
 const setupMobileNavigation = () => {
     const mobileNavButton = document.querySelector('.nav-mobile__button');
     const mobileNavInnerDiv = document.querySelector('.nav-mobile__content');
+    const mobileNavEl = document.querySelector('.nav-mobile');
+
     const body = document.querySelector('body');
     mobileNavButton.classList.add('nav-off');
+    mobileNavEl.classList.remove('hidden');
 
     const switchMobileNav = (e) => {
         if (e.target.classList.contains('nav-off')) {
