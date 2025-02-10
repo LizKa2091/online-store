@@ -3,7 +3,7 @@ const mayLikeDiv = document.querySelector('.section-like');
 const buyButtons = document.querySelectorAll('.item__button');
 const cards = document.querySelectorAll('.section-like__item');
 
-const itemsObj = {
+const itemsObject = {
     1: { name: 'Irish Stout Irish Stout', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '68 ₽', strength: '4.5 %', img: '../images/item1.png' },
     2: { name: 'Indian Stout', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '108 ₽', strength: '4.5 %', img: '../images/item2.png' },
     3: { name: 'Italian Stout', category: 'Пиво', subcategory: 'Светлое', capacity: '0.355 л', price: '208 ₽', strength: '4.5 %', img: '../images/item3.png' },
