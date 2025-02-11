@@ -63,11 +63,61 @@
     flex-direction: column;
     gap: 13px;
 }
-.intro-tip__image {
-    
+
+.modal {
+    width: clamp(290px, 100dvw, 637px);
+    background-color: var(--footer-bg-color);
+    color: #fff;
+    border: 1px solid var(--footer-bg-color);
+    border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.modal__wrapper {
+    width: clamp(255px, 100dvw, 469px);
+    margin: 56px auto 57px auto;
+}
+.modal__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.modal__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 37.18px;
+}
+.modal__text {
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin: 31px 0 35px 0;
+}
+.modal__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.modal__button {
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: 210px;
+    height: 51px;
+}
+.button-adult {
+    border: 1px solid var(--button-orange-bg);
+    background-color: var(--button-orange-bg);
+}
+.button-underage {
+    border: 1px solid #fff;
+    background-color: #fff;
 }
 
-.intro__button:hover {
+.intro__button:hover, .modal__button:hover {
     cursor: pointer;
 }
 .mouse-tip {
