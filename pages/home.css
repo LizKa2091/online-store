@@ -128,3 +128,7 @@
     width: 5px;
     height: 28px;
 }
+.blurred {
+    filter: blur(4px) brightness(0.4);
+    pointer-events: none;
+}
