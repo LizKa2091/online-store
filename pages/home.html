@@ -12,8 +12,6 @@
     <title>Главная</title>
 </head>
 <body>
-    <div class="home-background">
-    </div>
     <div class="wrapper">
         <header class="header">
             <div class="header__inner">
@@ -83,8 +81,12 @@
                 <button class="intro__button">Перейти в каталог</button>
            </div>
            <div class="intro-slider">
-
-           </div>
+                <div class="intro-slider__background" id="slide1"></div>
+                <div class="intro-slider__background" id="slide2"></div>
+                <div class="intro-slider__background" id="slide3"></div>
+                <button class="intro-slider__arrow slider-arrow-left arrow-unavailable"></button>
+                <button class="intro-slider__arrow slider-arrow-right arrow-available"></button>
+            </div>
            <div class="intro-tip">
                 <p class="intro-tip__title">Пролистать вниз</p>
                 <div class="intro-tip__images">
@@ -93,8 +95,29 @@
                 </div>
            </div>
         </main>
-        <section class="section">
-
+        <section class="section-about">
+            <div class="section-about__icons">
+                <img src="../images/wheat-yellow.png" class="section-about__icon wheat-left">
+                <img src="../images/wheat-yellow.png" class="section-about__icon wheat-right">
+            </div>
+            <h4 class="section-about__title">Наш ассортимент</h4>
+            <ul class="section-about__list">
+                <li class="section-about__item">               
+                    <img src="../images/about-1.png" alt="Пиво" class="section-about__img about-img1">Пиво
+                </li>
+                <li class="section-about__item">
+                    <img src="../images/about-2.png" alt="Пивные напитки" class="section-about__img about-img2">Пивные напитки
+                </li>
+                <li class="section-about__item">
+                    <img src="../images/about-3.png" alt="Сидр" class="section-about__img about-img3">Сидр
+                </li>
+                <li class="section-about__item">
+                    <img src="../images/about-4.png" alt="Квас" class="section-about__img about-img4">Квас
+                </li>
+                <li class="section-about__item">
+                    <img src="../images/about-5.png" alt="Лимонад" class="section-about__img about-img5">Лимонад
+                </li>
+            </ul>
         </section>
     </div>
     <footer class="footer">
@@ -127,6 +150,7 @@
                 </li>
                 <li class="footer__item">
                     <div class="footer__contacts">
+
                         <p class="footer__contacts-title">Контактная информация</p>
                         <ul class="footer__contacts-list">
                             <li class="footer__contacts-item footer__contacts-map">
