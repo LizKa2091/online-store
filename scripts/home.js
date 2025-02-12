@@ -100,63 +100,31 @@ const goNextSlide = (e) => {
 const updateSlides = () => {
     sliderBgs.forEach((bg, index) => {
         bg.classList.remove('active');
+        bg.style.background = `url(${sliderObj[index + 1]}) no-repeat center center`;
+        bg.style.backgroundSize = 'cover';
+        bg.style.filter = 'brightness(0.4)';
 
         if (index + 1 === sliderObj.currImageId) {
             bg.classList.add('active');
         }
-
-        bg.style.background = `url(${sliderObj[index + 1]}) no-repeat center center`;
-        bg.style.backgroundSize = 'cover';
-        bg.style.filter = 'brightness(0.4)';
     });
 
-    if (sliderObj.currImageId === 1) {
-        arrowLeft.classList.remove('arrow-available');
-        arrowRight.classList.remove('arrow-unavailable');
+    const isFirstSlide = sliderObj.currImageId === 1;
+    const isLastSlide = sliderObj.currImageId === 3;
 
-        arrowLeft.classList.add('arrow-unavailable');
-        arrowRight.classList.add('arrow-available');
+    arrowLeft.classList.toggle('arrow-unavailable', isFirstSlide);
+    arrowRight.classList.toggle('arrow-unavailable', isLastSlide);
+    arrowLeft.classList.toggle('arrow-available', !isFirstSlide);
+    arrowRight.classList.toggle('arrow-available', !isLastSlide);
 
-        arrowLeft.style.background = `url(${sliderObj.arrowUnavailable}) no-repeat center center`;
-        arrowLeft.style.backgroundSize = 'contain';
+    arrowLeft.style.background = `url(${isFirstSlide ? sliderObj.arrowUnavailable : sliderObj.arrowAvailable}) no-repeat center center`;
+    arrowRight.style.background = `url(${isLastSlide ? sliderObj.arrowUnavailable : sliderObj.arrowAvailable}) no-repeat center center`;
+    
+    arrowLeft.style.backgroundSize = 'contain';
+    arrowRight.style.backgroundSize = 'contain';
 
-        arrowRight.style.background = `url(${sliderObj.arrowAvailable}) no-repeat center center`;
-        arrowRight.style.backgroundSize = 'contain';
-
-        arrowLeft.style.transform = 'rotate(0deg)';
-        arrowRight.style.transform = 'rotate(0deg)';
-    }
-    else if (sliderObj.currImageId === 2) {
-        arrowLeft.classList.remove('arrow-unavailable');
-        arrowRight.classList.remove('arrow-unavailable');
-
-        arrowLeft.classList.add('arrow-available');
-        arrowRight.classList.add('arrow-available');
-
-        arrowLeft.style.background = `url(${sliderObj.arrowAvailable}) no-repeat center center`;
-        arrowLeft.style.backgroundSize = 'contain';
-
-        arrowRight.style.background = `url(${sliderObj.arrowAvailable}) no-repeat center center`;
-        arrowRight.style.backgroundSize = 'contain';
-
-        arrowRight.style.transform = 'rotate(0deg)';
-        arrowLeft.style.transform = 'rotate(180deg)';
-    }
-    else if (sliderObj.currImageId === 3) {
-        arrowLeft.classList.remove('arrow-unavailable');
-        arrowRight.classList.remove('arrow-available');
-
-        arrowLeft.classList.add('arrow-available');
-        arrowRight.classList.add('arrow-unavailable');
-
-        arrowLeft.style.background = `url(${sliderObj.arrowAvailable}) no-repeat center center`;
-        arrowLeft.style.backgroundSize = 'contain';
-
-        arrowRight.style.background = `url(${sliderObj.arrowUnavailable}) no-repeat center center`;
-        arrowRight.style.backgroundSize = 'contain';
-
-        arrowRight.style.transform = 'rotate(180deg)';
-    }
+    arrowLeft.style.transform = isFirstSlide ? 'rotate(0deg)' : 'rotate(180deg)';
+    arrowRight.style.transform = isLastSlide ? 'rotate(180deg)' : 'rotate(0deg)';
 };
 
 document.addEventListener('DOMContentLoaded', () => {
