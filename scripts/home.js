@@ -6,6 +6,7 @@ const sliderBgs = document.querySelectorAll('.intro-slider__background');
 const sliderDiv = document.querySelector('.intro-slider');
 const arrowLeft = document.querySelector('.slider-arrow-left');
 const arrowRight = document.querySelector('.slider-arrow-right');
+const introDots = document.querySelectorAll('.intro-dot');
 
 const sliderObj = {
     1: '../images/home-bg.png',
@@ -70,8 +71,8 @@ const setSlider = () => {
     const currLeftArrowPadding = (parseInt(window.getComputedStyle(document.querySelector('body')).width) - parseInt(window.getComputedStyle(document.querySelector('.intro__subtitle')).width)) / 2;
     const currRightArrowPadding = parseInt(window.getComputedStyle(document.querySelector('body')).width) - currLeftArrowPadding;
     
-    arrowLeft.style.left = `${currLeftArrowPadding-50}px`;
-    arrowRight.style.left = `${currRightArrowPadding+10}px`;
+    arrowLeft.style.left = `${currLeftArrowPadding}px`;
+    arrowRight.style.left = `${currRightArrowPadding-35}px`;
 
     arrowLeft.addEventListener('click', goPrevSlide);
     arrowRight.addEventListener('click', goNextSlide);
@@ -125,6 +126,10 @@ const updateSlides = () => {
 
     arrowLeft.style.transform = isFirstSlide ? 'rotate(0deg)' : 'rotate(180deg)';
     arrowRight.style.transform = isLastSlide ? 'rotate(180deg)' : 'rotate(0deg)';
+
+    [...introDots].filter(dot => dot.classList.contains('active')).forEach(el => el.classList.remove('active'));
+
+    introDots[sliderObj.currImageId-1].classList.add('active');
 };
 
 document.addEventListener('DOMContentLoaded', () => {
