@@ -122,6 +122,9 @@ const updateSlides = () => {
 
         arrowRight.style.background = `url(${sliderObj.arrowAvailable}) no-repeat center center`;
         arrowRight.style.backgroundSize = 'contain';
+
+        arrowLeft.style.transform = 'rotate(0deg)';
+        arrowRight.style.transform = 'rotate(0deg)';
     }
     else if (sliderObj.currImageId === 2) {
         arrowLeft.classList.remove('arrow-unavailable');
@@ -135,6 +138,9 @@ const updateSlides = () => {
 
         arrowRight.style.background = `url(${sliderObj.arrowAvailable}) no-repeat center center`;
         arrowRight.style.backgroundSize = 'contain';
+
+        arrowRight.style.transform = 'rotate(0deg)';
+        arrowLeft.style.transform = 'rotate(180deg)';
     }
     else if (sliderObj.currImageId === 3) {
         arrowLeft.classList.remove('arrow-unavailable');
@@ -148,6 +154,8 @@ const updateSlides = () => {
 
         arrowRight.style.background = `url(${sliderObj.arrowUnavailable}) no-repeat center center`;
         arrowRight.style.backgroundSize = 'contain';
+
+        arrowRight.style.transform = 'rotate(180deg)';
     }
 };
 
