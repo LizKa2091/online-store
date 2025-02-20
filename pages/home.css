@@ -12,6 +12,7 @@
 }
 .wrapper {
     min-height: calc(100dvh - var(--footer-h));
+    overflow: visible;
 }
 
 .intro {
@@ -82,8 +83,9 @@
 .section-about__title {
     font-size: 2.1875rem;
     margin: 5px 0 29px 0;
+    position: relative;
 }
-.section-about__icons, .section-whyus__icons {
+.section__icons {
     display: flex;
     gap: 30px;
 }
@@ -159,9 +161,6 @@
 .intro-slider__arrow.slider-arrow-right {
     background: url('../images/slider-arrow-available.png') no-repeat center center;
     background-size: contain;   
-}
-.intro-slider__arrow:hover {
-    cursor: pointer;
 }
 .intro-slider__background {
     position: absolute;
@@ -254,6 +253,7 @@
 .section-whyus__title {
     font-size: 2.1875rem;
     margin-bottom: 48px;
+    position: relative;
 }
 .section-whyus__list {
     display: flex;
@@ -298,6 +298,195 @@
     height: 100%;
     max-width: 284.66px;
     max-height: 180.75px;
+}
+
+.section-company {
+    position: relative;
+}
+.section-company__top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 260px;
+}
+
+.section-company__bg {
+    background: url('../images/about-section-bg.png') no-repeat center center;
+    background-size: cover;
+    width: 100dvw;
+    height: 100%;
+    max-height: 260px;
+    position: absolute;
+    z-index: -1;
+}
+.section-company__bg::before {
+    content: '';
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.section-company__title {
+    font-weight: 500;
+}
+.section-company__top__title {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    max-width: 511px;
+}
+.section-company__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-top: 41px;
+}
+.section-company__intro__title {
+    font-size: 2.1875rem;
+    color: #000;
+    position: relative;
+    margin-top: 35px;
+}
+.section-company__text {
+    font-weight: 300;
+    width: 100%;
+    max-width: 540px;
+}
+.section-company__button {
+    background-color: var(--button-orange-bg);
+    border: 1px solid var(--button-orange-bg);
+    border-radius: 50px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    height: 44px;
+    max-width: 255px;
+    margin-top: 8px;
+}
+.section-company__bottom {
+    display: flex;
+    gap: 30px;
+    height: 611px;
+    position: relative;
+}
+.section-company__extra {
+    background: url('../images/company-left-img.png') no-repeat center center;
+    background-size: cover;
+    width: 50dvw;
+    height: 100%;
+    max-width: 994px;
+    max-height: 611px;
+    height: 611px;
+    position: absolute;
+    margin-right: -49px;
+    left: 50%;
+    right: 0;
+    top: 0;
+}
+/*доработать расположение картинок*/
+.section-company__extra-bg {
+    position: absolute;
+    left: calc(-35% - 62px);
+}
+.section-company__extra-bg__img {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.section-company__extra-bg__img--1 {
+    max-width: 263px;
+    max-height: 363.86px;
+}
+.section-company__extra-bg__img--2 {
+    max-width: 239px;
+    max-height: 266.11px;
+    top: -52.5px;
+    left: -22.5px;
+}
+.section-services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 121px 0 100px 0;
+    row-gap: 16px;
+}
+.section-services__title {
+    font-size: 2.1875rem;
+}
+.section-services__blocks {
+    display: flex;
+}
+.section-services__block {
+    position: relative;
+    width: 50dvw;
+    height: 447px;
+}
+.section-services__block::before {
+    content: '';
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.section-services__left {
+    background: url('../images/services-1.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+.section-services__right {
+    background: url('../images/services-2.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+.section-services__inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: 75%;
+    left: 30px;
+    right: 0;
+    bottom: 0;
+    transform: translateY(-50%);
+}
+.section-services__subtitle {
+    font-size: 1.875rem;
+    font-weight: 500;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 11px;
+}
+.section-services__text {
+    text-align: left;
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 26px;
+    max-width: 540px;
+}
+.section-services__button {
+    background-color: var(--button-orange-bg);
+    border: 1px solid var(--button-orange-bg);
+    border-radius: 50px;
+    font-weight: 500;
+    width: 100%;
+    height: 44px;
+    max-width: 255px;
 }
 
 .modal {
@@ -353,7 +542,7 @@
     background-color: #fff;
 }
 
-.intro__button:hover, .modal__button:hover, .arrow-available:hover{
+.intro__button:hover, .modal__button:hover, .arrow-available:hover, .intro-slider__arrow:hover, .section-company__button:hover, .section-services__button   {
     cursor: pointer;
 }
 .arrow-unavailable:hover {
@@ -401,4 +590,37 @@
 .intro-dot.active {
     background-color: var(--button-orange-bg);
     transform: scale(1.25);
+}
+.green-wheats::before, .green-wheats::after {
+    content: '';
+    background: url('../images/wheat-green.png');
+    background-size: contain;
+    width: 47px;
+    height: 18px;
+    position: absolute;
+    top: -50%;
+    transform: translateY(-50%);
+}
+.yellow-wheats::before, .yellow-wheats::after {
+    content: '';
+    background: url('../images/wheat-yellow.png');
+    background-size: contain;
+    width: 47px;
+    height: 18px;
+    position: absolute;
+    top: -50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+.yellow-wheats::after {
+    left: 60%;
+}
+.yellow-wheats::before {
+    left: 35%;
+    transform: translateY(-50%) translateX(-50%) rotateY(180deg);
+}
+.green-wheats::after {
+    transform: translateY(-50%) rotateY(180deg) translateX(-50%);
+}
+.green-wheats::after {
+    left: 77px;
 }
