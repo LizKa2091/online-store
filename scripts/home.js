@@ -1,5 +1,5 @@
 const bodyChildren = document.body.children;
-const elemsToBlur = [document.querySelector('.header'), document.querySelector('.intro'), document.querySelector('.intro-slider'), document.querySelector('.intro-dots'), document.querySelector('.intro-tip'), document.querySelector('.section-about'), document.querySelector('.footer')]
+const elemsToBlur = [document.querySelector('.header'), document.querySelector('.intro'), document.querySelector('.intro-slider'), document.querySelector('.intro-dots'), document.querySelector('.intro-tip'), document.querySelector('.section-about'), document.querySelector('.footer'), document.querySelector('.section-whyus'), document.querySelector('.section-company'), document.querySelector('.section-services')]
 const goCatalogButton = document.querySelector('.intro__button');
 
 const sliderBgs = document.querySelectorAll('.intro-slider__background');
@@ -7,6 +7,8 @@ const sliderDiv = document.querySelector('.intro-slider');
 const arrowLeft = document.querySelector('.slider-arrow-left');
 const arrowRight = document.querySelector('.slider-arrow-right');
 const introDots = document.querySelectorAll('.intro-dot');
+
+const body = document.querySelector('body');
 
 const sliderObj = {
     1: '../images/home-bg.png',
@@ -21,6 +23,7 @@ const setModalVisibility = () => {
     let modal = document.querySelector('.modal') || undefined;
     if (!sessionStorage.getItem('isAdult')) {
         [...elemsToBlur].forEach(el => el.classList.add('blurred'));
+        body.style.overflow = 'hidden';
         
         const modal = document.createElement('div');
 
@@ -43,6 +46,7 @@ const setModalVisibility = () => {
         setButtonEventListeners();
     }
     else if (modal) {
+        body.style.overflow = 'visible';
         modal.classList.add('hidden');
     }
 };
@@ -51,6 +55,7 @@ function modalAction(e) {
     if (e.target.classList.contains('button-adult')) {
         document.querySelector('.modal').classList.add('hidden');
         elemsToBlur.forEach(el => el.classList.remove('blurred'));
+        body.style.overflow = 'visible';
 
         sessionStorage.setItem('isAdult', true)
     }
