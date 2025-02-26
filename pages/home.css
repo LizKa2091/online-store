@@ -592,6 +592,7 @@
     flex-direction: column;
     padding: 102px 0 103px 0;
     gap: 26px;
+    position: relative;
 }
 .section-news__title {
     font-size: 2.1875rem;
@@ -620,6 +621,19 @@
 }
 .section-news__item__text {
     font-weight: 300;
+}
+.section-news__bg {
+    display: flex;
+    justify-content: flex-end;
+    width: 100dvw;
+    height: 341.38px;
+    position: absolute;
+}
+.section-news__bg__img {
+    position: relative;
+}
+.yellow-wheats, .green-wheats {
+    position: relative;
 }
 
 .modal {
@@ -724,7 +738,7 @@
     background-color: var(--button-orange-bg);
     transform: scale(1.25);
 }
-.green-wheats::before, .green-wheats::after {
+.section-whyus__title::before, .section-whyus__title::after, .section-company__intro__title::before, .section-company__intro__title::after, .section-new__title::before, .section-new__title::after, .section-new__title::before, .section-new__title::after {
     content: '';
     background: url('../images/wheat-green.png');
     background-size: contain;
@@ -734,7 +748,7 @@
     top: -50%;
     transform: translateY(-50%);
 }
-.yellow-wheats::before, .yellow-wheats::after {
+.section-news__title::before, .section-news__title::after, .section-about__title::before, .section-about__title::after, .section-services__title::before, .section-services__title::after {
     content: '';
     background: url('../images/wheat-yellow.png');
     background-size: contain;
@@ -744,28 +758,22 @@
     top: -50%;
     transform: translateY(-50%) translateX(-50%);
 }
-.yellow-wheats::after {
+.section-news__title::after, .section-about__title::after, .section-services__title::after {
     left: 60%;
 }
-.yellow-wheats::before {
+.section-news__title::before, .section-about__title::before, .section-services__title::before {
     left: 35%;
     transform: translateY(-50%) translateX(-50%) rotateY(180deg);
 }
-.green-wheats::after {
+.section-whyus__title::after, .section-company__intro__title::after, .section-new__title::after, .section-new__title::after {
     transform: translateY(-50%) rotateY(180deg) translateX(-50%);
 }
-.green-wheats::after {
-    left: 50px;
-}
-.green-wheats.wheats-centered::before, .green-wheats.wheats-centered::after {
+.section-whyus__title::after, .section-company__intro__title::before, .section-company__intro__title::after, .section-new__title::before, .section-new__title::after, .section-new__title::before, .section-new__title::after {
     left: 50%;
-    transform: translateX(-50%);
 }
-.green-wheats.wheats-centered::before {
-    
-}
-.green-wheats.wheats-centered::after {
-
+.section-whyus__title::before {
+    left: calc(50% - 37px);
+    transform:  translateX(-50%) translateY(-50%);
 }
 .section-news__item--1::before, .section-news__item--2::before, .section-news__item--3::before {
     content: '';
