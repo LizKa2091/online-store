@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./about.css">
     <link rel="stylesheet" href="../styles/common-blocks.css">
-    <title>Корзина</title>
+    <title>О компании</title>
 </head>
 <body>
     <div class="background">
@@ -76,40 +76,8 @@
                 </div>
                 <div class="nav-mobile__content"></div>
             </nav>
-            <h2 class="header__title">Корзина</h2>
+            <h2 class="header__title">О компании</h2>
         </header>
-        <main class="main">
-            <div class="empty-cart">
-                <h3 class="empty-cart__title">Пустая корзина</h3>
-                <p class="empty-cart__subtitle">В вашей корзине пока нет товаров</p>
-                <p class="empty-cart__subtitle">Легко добавляйте в корзину понравившиеся товары кликнув по кнопке</p>
-                <button class="empty-cart__button">Перейти в каталог</button>
-            </div>
-            <div class="filled-cart">
-                <table class="filled-cart__table">
-                    <thead class="filled-cart__head">
-                        <tr>
-                            <th class="filled-cart__header"></th>
-                            <th class="filled-cart__header">Название товара</th>
-                            <th class="filled-cart__header">Кол-во</th>
-                            <th class="filled-cart__header">Стоимость</th>
-                            <th class="filled-cart__header"></th>
-                            <th class="filled-cart__header"></th>
-                        </tr>
-                    </thead>
-                    <tbody class="filled-cart__body">
-                    </tbody>
-                </table>
-                <div class="filled-cart__total">
-                    <div class="filled-cart__total-left">
-                        Итого: <span class="filled-cart__price"></span>
-                    </div>
-                    <div class="filled-cart__total-right">
-                        <button class="filled-cart__button">Оформить заказ</button>
-                    </div>
-                </div>
-            </div>
-        </main>
     </div>
     <footer class="footer">
         <div class="footer__wrapper">
@@ -187,8 +155,7 @@
             </div>
         </div>
     </footer>
-    <script src="/scripts/cart.js"></script>
-    <script src="/scripts/mobile-nav.js"></script>
-    <script src="/scripts/cart-common.js"></script>
+    <script src="../scripts/mobile-nav.js"></script>
+    <script src="../scripts/cart-common.js"></script>
 </body>
 </html>
