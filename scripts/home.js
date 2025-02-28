@@ -56,6 +56,7 @@ function modalAction(e) {
         document.querySelector('.modal').classList.add('hidden');
         elemsToBlur.forEach(el => el.classList.remove('blurred'));
         body.style.overflow = 'visible';
+        //пофиксить
 
         sessionStorage.setItem('isAdult', true)
     }
