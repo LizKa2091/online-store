@@ -17,21 +17,19 @@ const main = document.querySelector('.main');
 const items = document.querySelectorAll('.card');
 const saleBanner = document.querySelector('.sale');
 
-const contactPanelButton = document.querySelector('.contact-panel__button');
-
 const filtersObj = {};
 
 const findItemsByQuery = async (input) => {
     const resultItems = [...items].filter(item => item.dataset.itemName.toLowerCase().includes(input.toLowerCase()));
-    
     resultItems.forEach(item => item.style.display = 'flex');
+    
     return resultItems.length;
 };
 
 const findItemsByPrice = async (startingPrice, endingPrice) => {
     const resultItems = [...items].filter(item => startingPrice <= parseInt(item.dataset.price) && parseInt(item.dataset.price) <= endingPrice);
-
     resultItems.forEach(item => item.style.display = 'flex');
+    
     return resultItems.length;
 };
 
@@ -40,6 +38,7 @@ const inputOnChange = (e) => {
         searchInputButton.style.cursor = 'not-allowed';
         return;
     }
+
     filtersObj.currInput = e.target.value;
     searchInputButton.style.cursor = 'pointer';
 };
@@ -77,7 +76,6 @@ const searchInputOnClick = async (e) => {
         const itemsLen = await findItemsByQuery(filtersObj.currInput);
 
         headerTitle.textContent = `Поиск "${filtersObj.currInput}"`;
-
         searchResultSpan.textContent = `Найдено результатов поиска: ${itemsLen}`;
         searchResultSpan.style.display = 'inline';
 
@@ -93,7 +91,6 @@ const priceOnClick = async () => {
         const itemsLen = await findItemsByPrice(startPriceInput.value, endPriceInput.value);
 
         headerTitle.textContent = `Поиск по диапазону цены от ${startPriceInput.value} до ${endPriceInput.value}`;
-
         searchResultSpan.textContent = `Найдено результатов поиска: ${itemsLen}`;
         searchResultSpan.style.display = 'inline';
         
@@ -101,43 +98,7 @@ const priceOnClick = async () => {
     }
 };
 
-const contactPanelProccess = (e) => {
-    e.preventDefault();
-
-    const contactInputs = document.querySelectorAll('.contact-panel__input');
-    const areInputsFilled = [...contactInputs].every(input => input.value !== '');
-
-    [...contactInputs].filter(input => input.value === '').forEach(el => {
-        el.style.border = '1px solid red';
-    });
-
-    [...contactInputs].filter(input => input.value !== '').forEach(el => {
-        el.style.border = '0';
-    });
-
-    if (areInputsFilled) {
-        
-        const contactPanel = document.querySelector('.contact-panel');
-        const contactPanelButton = document.querySelector('.contact-panel__button');
-        
-        contactPanel.classList.add('success');
-        e.target.style.cursor = 'not-allowed';
-
-        setTimeout(() => {
-            contactPanel.classList.toggle('success');
-            contactPanelButton.classList.add('hidden');
-            contactPanel.innerHTML += `<p class='success-p'>Форма успешно отправлена!</p>`;
-        }, 3000);
-    }
-    else {
-        [...contactInputs].filter(input => input.value === '').forEach(el => {
-            el.style.border = '1px solid red';
-        });
-    }
-}
-
 const closeMobileFilter = () => {
-    console.log('called closemobilefilter')
     const filterDiv = document.querySelector('.filter-panel');
 
     if (filterDiv.classList.contains('active') && window.matchMedia("(max-width: 500px)").matches) {
@@ -156,4 +117,3 @@ searchInputButton.addEventListener('click', searchInputOnClick);
 pricePickButton.addEventListener('click', priceOnClick);
 
 document.addEventListener('DOMContentLoaded', () => Object.keys(filtersObj).forEach(key => delete items[key]));
-contactPanelButton.addEventListener('click', contactPanelProccess);

@@ -172,8 +172,15 @@
 .contact-panel__button {
     margin-top: var(--contact-panel-button-m-top);
 }
-
-
+.success {
+    filter: blur(3px)
+}
+.success-p {
+    color: var(--button-orange-bg);
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: var(--item-card-success-p-m-top);
+}
 
 .contact-panel__button:hover {
     cursor: pointer;
