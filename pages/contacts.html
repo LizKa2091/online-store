@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./item-card.css">
+    <link rel="stylesheet" href="./contacts.css">
     <link rel="stylesheet" href="../styles/common-blocks.css">
-    <title>Товар</title>
+    <title>Контакты</title>
 </head>
 <body>
     <div class="background">
@@ -76,79 +76,67 @@
                 </div>
                 <div class="nav-mobile__content"></div>
             </nav>
-            <h2 class="header__title">Товар</h2>
+            <h2 class="header__title">Контакты</h2>
         </header>
-        <div class="content-wrapper">
-            <a class="content__link" href="./catalog.html">Вернуться в каталог</a>
-            <div class="content">
-                <main class="main">
-                    <div class="main__item">
-                        <img src="../images/item1.png" alt="item icon" class="main__item-icon">
-                        <div class="main__item-info">
-                            <h4 class="main__item__title"></h4>
-                            <p class="main__item__subtitle"></p>
-                            <p class="main__item__subtitle">Крепость</p>
-                            <p class="main__item__value"></p>
-                            <p class="main__item__subtitle">Объём</p>
-                            <p class="main__item__value"></p>
-                            <p class="main__item__price"></p>
-                            <div class="main__item-action">
-                                <div class="main__item-action-amount">
-                                    <button class='main__item-action__button item-decrease' data-id=''></button>  
-                                    <p class='main__item-action__amount' data-id=''>1</p>
-                                    <button class='main__item-action__button item-increase' data-id=''></button>
-                                </div> 
-                                <button class='main__item-action__button item-buy' data-id=''>Купить</button>
-                                <button class='main__item-action__button item-buy-once' data-id=''>Купить в один клик</button>
+        <main class="main">
+            <div class="main__inner">
+                <div class="main__left">
+                    <div class="main__left__upper">
+                        <h4 class="main__title">Где нас найти</h4>
+                        <p class="main__text">Россия, Москва, Рязанский проспект 22, к2</p>
+                    </div>
+                    <div class="main__left__lower">
+                        <h4 class="main__title">Свяжитесь с нами</h4>
+                        <ul class="main__list">
+                            <li class="main__item">
+                                <a href="tel:+74957404051" class="main__link main__link--1">+7 (495) 740-40-51</a>
+                            </li>
+                            <li class="main__item">
+                                <a href="tel:+79259240700" class="main__link main__link--2">+7 (925) 924-07-00</a>
+                            </li>
+                            <li class="main__item">
+                                <a href="mailto:wunderbeer@mail.ru" class="main__link main__link--3">wunderbeer@mail.ru</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="main__right">
+                    <h4 class="main__title">Оставьте для нас сообщение и мы ответим</h4>
+                    <form action="" class="main__form">
+                        <div class="main__form__row">
+                            <div class="main__form__container">
+                                <input type="text" name="name" id="name" class="main__form__input">
+                                <label for="name" class="main__form__label main__form__label--input">Ваше имя</label>
+                            </div>
+                            <div class="main__form__container">
+                                <input type="email" name="email" id="email" class="main__form__input">
+                                <label for="email" class="main__form__label main__form__label--input">Ваш email</label>
                             </div>
                         </div>
-                    </div>
-                </main>
-                <aside class="aside">
-                    <div class="contact-panel">
-                        <h3 class="contact-panel__title">Остались вопросы?</h3>
-                        <span class="contact-panel__subtitle">Оставьте свой номер телефона и мы Вам поможем</span>
-                        <form action="" class="contact-panel__form">
-                            <div class="contact-panel__inputs">
-                                <input type="text" class="contact-panel__input" placeholder="Ваше имя">
-                                <input type="tel" class="contact-panel__input" placeholder="Ваш номер">
+                        <div class="main__form__row">
+                            <div class="main__form__container">
+                                <textarea name="message" id="message" class="main__form__textarea"></textarea>
+                                <label for="message" class="main__form__label">Ваше сообщение</label>
                             </div>
-                            <span class="contact-panel__extra">Нажимая на кнопку "отправить", вы даёте согласие на обработку своих <a href="#" class="contact-panel__extra-link">персональных данных</a></span>
-                            <button class="contact-panel__button" type="submit">Отправить</button>
-                        </form>
+                        </div>
+                        <p class="main__form__warning">
+                            Нажимая на кнопку “отправить”, вы даете согласие на обработку своих <a href="#" class="main__form__warning--link">персональных данных</a>
+                        </p>
+                        <button class="main__form__button" type="submit">Отправить</button>
+                    </form>
+                </div>
+                <div class="main__bottom">
+                    <div style="position:relative;overflow:hidden;">
+                        <a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a>
+                        <a href="https://yandex.ru/maps/213/moscow/house/ryazanskiy_prospekt_22/Z04YcQBhTkEGQFtvfXtzcHpiZA==/?ll=37.771742%2C55.721610&utm_medium=mapframe&utm_source=maps&z=16.85" style="color:#eee;font-size:12px;position:absolute;top:14px;">Рязанский проспект, 22 — Яндекс Карты</a>
+                        <iframe class="main__iframe" src="https://yandex.ru/map-widget/v1/?ll=37.771742%2C55.721610&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjY4NzkyNBJD0KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINCg0Y_Qt9Cw0L3RgdC60LjQuSDQv9GA0L7RgdC_0LXQutGCLCAyMiIKDUQWF0IV7uJeQg%2C%2C&z=16.85"
+                            allowfullscreen="true" style="position:relative;">
+                        </iframe>
                     </div>
-                </aside>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
-    <section class="section">
-        <ul class="section__list">
-            <li class="section__item" data-title="Описание">
-                <div class="section__item__header current-item"><a href="#" class="section__item__header-link current-item-link">Описание</a></div>
-            </li>
-            <li class="section__item" data-title="Характеристики">
-                <div class="section__item__header"><a href="#" class="section__item__header-link">Характеристики</a></div>
-            </li>
-        </ul>
-        <div class="section__item__content">
-            Пиво Pilsner Urquell (Пилзнер Урквелл) светлое 4,4% 0,5л ж/б.<br>
-            Пиво светлое фильтрованное пастеризованное.<br>
-            Экстрактивность начального сусла 11.75%. Объемная доля спирта 4,4%об.<br>
-            Состав: вода, ячменный солод, хмель.<br>
-            Содержит глютен. <br>
-            Пищевая ценность: углеводы 4,7г.<br>
-            Энергетическая ценность 41,8 ккал, углеводы 4,51г, белок 0,7г.<br>
-            Хранить в холодном сухом месте при температуре +5 - +20'С.<br>
-            Чрезмерное употребление алкогольной продукции вредит вашему здоровью.<br>
-            Срок годности 9 месяцев.<br>
-        </div>
-    </section>
-    <section class="section">
-        <div class="second-wrapper">
-            <h4 class="section__header">Вам понравится</h4>
-            <div class="section-like"></div>    
-        </div>
-    </section>
     <footer class="footer">
         <div class="footer__wrapper">
             <ul class="footer__list">
@@ -196,7 +184,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="footer__item footer__extra">
+                <li class="footer__item">
                     <ul class="footer__links">
                         <li class="footer__links-item">
                             <a href="./catalog.html" class="footer__links-item-link">Каталог</a>
@@ -225,9 +213,9 @@
             </div>
         </div>
     </footer>
-    <script src="../scripts/item-card.js"></script>
-    <script src="../scripts/may-like.js"></script>
     <script src="../scripts/mobile-nav.js"></script>
     <script src="../scripts/cart-common.js"></script>
+    <script src="../scripts/contactPanel.js"></script>
+    <script src="../scripts/inputAnimation.js"></script>
 </body>
 </html>

@@ -145,6 +145,8 @@
     --item-card-success-p-m-top: 10px;
     --item-card-main-item-value-last-m-left: 17px;
     --border-gray: #E5E5E5;
+    --gray-input-inner-label: #6C6C6C;
+    --gray-input-border: #C7C7C7;
 }
 
 * {
