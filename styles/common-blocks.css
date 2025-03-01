@@ -147,6 +147,7 @@
     --border-gray: #E5E5E5;
     --gray-input-inner-label: #6C6C6C;
     --gray-input-border: #C7C7C7;
+    --black-error-page-bg: #222222;
 }
 
 * {

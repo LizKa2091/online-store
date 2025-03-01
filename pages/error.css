@@ -1,0 +1,27 @@
+body {
+    background-color: var(--black-error-page-bg);
+}
+.main {
+    height: 639px;
+    position: relative;
+}
+.main__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+}
+.main__title {
+    font-size: 18.75rem;
+    font-weight: 400;
+    color: var(--button-orange-bg);
+}
+.main__subtitle {
+    font-size: 3.125rem;
+    color: #fff;
+}
+.main__link {
+    font-size: 1.25rem;
+    color: #fff;
+}
